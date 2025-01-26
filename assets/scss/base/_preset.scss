@@ -1,0 +1,100 @@
+html{
+    @include tablet {
+        font-size: 15px;
+    }
+    @include mobile {
+        font-size: 14px;
+    }
+}
+
+body {
+    font-family: 'Bricolage Grotesque','pretendard', sans-serif;
+    line-height: 1.5;
+}
+
+:root{
+    --grid-columns: 12;
+    --grid-gutter: 15px;
+    --grid-margin: 25px;
+    --grid-width: calc(100vw -(2* var(--grid-margin)) - var(--scrollbar-width));
+    --grid-column-width: calc((var(--grid-width) -((var(--grid-columns) - 1)* var(--grid-gutter))) / var(--grid-columns));
+
+    
+    --gutter-size: 3.75rem;
+    --gutter-size-small: 2.5rem;
+
+    @include tablet {
+        --gutter-size: 40px;
+        --gutter-size-small: 20px;
+    }
+    @include mobile {
+        --gutter-size: 20px;
+        --gutter-size-small: 10px;
+    }
+
+}
+
+::-webkit-selection {
+    background: rgba(135, 135, 135, .35);
+    color:#fff;
+}
+::-moz-selection {
+    background: rgba(135, 135, 135, .35);
+    color:#fff;
+}
+::selection {
+    background: rgba(135, 135, 135, .35);
+    color:#fff;
+}
+
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: polygon(0 0, 0 0, 0 0);
+    white-space: nowrap;
+}
+
+.pc-only{
+    @include tablet {
+        display: none !important;
+    }
+}
+
+.tb-show{
+    display: none !important;
+    @include tablet {
+        display: block !important;
+    }
+}
+
+.mo-only{
+    display: none !important;
+    @include mobile {
+        display: block !important;
+    }
+}
+
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: polygon(0 0, 0 0, 0 0);
+    white-space: nowrap;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    @include tablet {
+        flex-direction: column;
+    }
+    &__col{
+        flex-basis: 0;
+        flex-grow: 1;
+    }
+}
