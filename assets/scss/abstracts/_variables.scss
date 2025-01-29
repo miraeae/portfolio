@@ -7,10 +7,14 @@ $mobile480: 480px;
 // Color
 $color-white:#fff;
 $color-black:#000;
-$color-dark-gray:#121212;
-$color-dark-white:#eaeaea;
+$color-darkgray:#1c1c1c;
+$color-gray:#ebebeb;
+$color-lightgray:#fafafa;
 $color-primary: #c4ff23;
 
 // Font
-$font-en: "Marcellus", serif;
-$font-ko: "pretendard", sans-serif;
+$font-sans-serif: "pretendard", sans-serif;
+$font-serif: "Instrument Serif", serif;
+
+// Vendor Prefix
+$set-prefix: '-moz-', '-webkit-', '';

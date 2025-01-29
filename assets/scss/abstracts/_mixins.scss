@@ -22,14 +22,9 @@
   }
 }
 
-// flex
-@mixin flex($justify, $align) {
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
-}
 
-// 아래처럼 사용
-// .box {
-//   @include flex(space-between, center);
-// }
+@mixin Prefix($name, $value) {
+  @each $prefix in $set-prefix {
+    #{$prefix}#{$name}: $value;
+  }
+}
