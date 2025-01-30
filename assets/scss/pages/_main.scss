@@ -77,16 +77,6 @@ body[data-bgcolor=black]{
             }
         }
     }
-
-    &.last{
-        margin-bottom: 530px; //Footer 공간 확보
-        @include tablet{
-            margin-bottom: 400px;
-        }
-        @include mobile {
-            margin-bottom: 320px;
-        }
-    }
 }
 
 
@@ -548,7 +538,7 @@ body[data-bgcolor=black]{
                     order:3;
                 }
                 .sub-project__item-img-box{
-                    height:68vh;
+                    height:37.5rem;
                     @include tablet {
                         height: auto;
                     }
@@ -669,7 +659,7 @@ body[data-bgcolor=black]{
         }
 
         .counter{
-            font-size:8.75rem;
+            font-size:6.75rem;
             font-weight: 500;
             line-height: 1;
             letter-spacing: -0.04em;
