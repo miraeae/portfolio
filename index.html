@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Chomirae Portfolio</title>
     <link rel="icon" href="./assets/images/favicon.ico">
 
     <meta name="robots" content="noindex">
@@ -16,61 +16,64 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script><script src="./assets/js/script.js" defer></script>
 </head>
-<body data-bgcolor="gray">
-    <header class="header">
+<body>
+    <header id="header" class="header">
         <div class="header__inner">
-            <div class="logo">
-                <a href="#"><span class="logo__name">CHOMIRAE</span><span class="logo__job">Publisher</span></a>
+            <div class="header__logo">
+                <a href="#">CHOMIRAE</a>
             </div>
             <nav class="gnb pc-only">
                 <ul class="gnb__list">
                     <li class="gnb__item">
-                        <a href="#hero" class="reveal-btn">
+                        <a href="#hero">
                             <span data-text="Home">Home</span>
                         </a>
                     </li>
                     <li class="gnb__item">
-                        <a href="#about" class="reveal-btn">
+                        <a href="#about">
                             <span data-text="About">About</span>
                         </a>
                     </li>
                     <li class="gnb__item">
-                        <a href="#project" class="reveal-btn">
+                        <a href="#project">
                             <span data-text="Projects">Projects</span>
                         </a>
                     </li>
                     <li class="gnb__item">
-                        <a href="#goal" class="reveal-btn">
+                        <a href="#goal">
                             <span data-text="Goal">Goal</span>
                         </a>
                     </li>
                 </ul>
             </nav>
-            <div class="header__btn pc-only">
-                <a href="#contact" class="reveal-btn">
+            <div class="header__contact pc-only">
+                <a href="#contact">
                     <span data-text="Contact">Contact</span>
                 </a>
             </div>
-            <div class="gnb-mobile-trigger tb-show">
-                <span class="top"></span>
-                <span class="middle"></span>
-                <span class="bottom"></span>
+            <div class="gnb-trigger tb-show">
+                <span class="gnb-trigger__bar"></span>
+                <span class="gnb-trigger__bar"></span>
             </div>
         </div>
-        <div class="gnb-mobile">
+        <div class="gnb-mobile tb-show">
             <div class="gnb-mobile__inner">
                 <ul class="gnb-mobile__list">
                     <li class="gnb-mobile__item">
-                        <a href="#hero">
-                            <span data-text="Home">Home</span>
+                        <a href="#hero">Home</span>
                         </a>
                     </li>
                     <li class="gnb-mobile__item">
-                        <a href="#about">
-                            <span data-text="About">About</span>
+                        <a href="#about">About</span>
                         </a>
                     </li>
                     <li class="gnb-mobile__item">
@@ -80,230 +83,355 @@
                         <a href="#goal">Goal</a>
                     </li>
                     <li class="gnb-mobile__item">
-                        <a href="#goal">Contact</a>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <ul class="gnb-mobile__contact-list">
+                    <li class="gnb-mobile__contact-item">
+                        <a href="mailto:minmimail@gmail.com">Email</a>
+                    </li>
+                    <li class="gnb-mobile__contact-item">
+                        <a href="tell:010-7514-7282">Phone</a>
+                    </li>
+                    <li class="gnb-mobile__contact-item">
+                        <a href="https://github.com/miraeae" rel="noopener" target="_blank">GitHub</a>
                     </li>
                 </ul>
             </div>
         </div>
     </header>
-    <main>
-        <section id="hero" class="hero sec" data-bgcolor="gray">
+    <main id="main" class="container">
+        <!-- Intro -->
+        <section id="intro" class="intro sec" data-mode="dark">
+            <div class="intro__inner">
+                <div class="intro__text">
+                    <span>Publisher</span>
+                    <span>Portfolio</span>
+                    <span>©2025</span>
+                    <span>of</span>
+                    <span>Chomirae</span>
+                </div>
+            </div>
+        </section>
+        <!-- Hero start -->
+        <section id="hero" class="hero sec" data-mode="dark">
             <div class="hero__inner">
-                <div class="hero__content">
-                    <div aria-hidden="true" class="hero__title skew-up">Portfolio</div>
-                    <h1 aria-label="Portfolio" class="sr-only">Portfolio</h1>
-                    <p class="hero__text">(Chomirae)</p>
-                </div>  
-                <small class="hero__copyright">© 2025</small>
-                <div class="hero__video-bg">
-                    <video loop autoplay muted playsinline data-wf-ignore="true">
-                        <source src="./assets/images/video-03.mp4">
-                    </video>
+                <div class="hero__text-wrap">
+                    <div aria-hidden="true" class="hero__title">
+                        Future-Driven Publishing,<br>
+                        <em>Pixel by Pixel.</em>
+                    </div>
+                    <h1 aria-label="Future-Driven Publishing, Pixel by Pixel." class="sr-only">Future-Driven Publishing, Pixel by Pixel.</h1>
+                    <div class="hero__text-btm line-anim">
+                        <small class="hero__copyright">ⓒ 2025</small>
+                        <p class="hero__text">
+                            단순한 구현을 넘어서 기억에 남는 사이트를 만들고 싶습니다.<br>
+                            한 픽셀씩 쌓아 올려, 사용자에게 차별화된 경험을 제공하고자 합니다.
+                        </p>
+                    </div>
                 </div>
             </div>
+            <div class="hero__pixel">
+                <svg class="hero__pixel-item" width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M80 0H160V80H80V0ZM80 80V160H0V80H80Z" fill="white"/>
+                </svg>
+            </div>
+            <div class="hero__bg">
+                <img src="./assets/images/hero-01.jpg" alt="Hero 비쥬얼 이미지">
+            </div>
         </section>
-        <section id="about" class="about sec" data-bgcolor="gray">
+        <section id="about" class="about sec" data-mode="light">
             <div class="about__inner">
-                <h2 class="about__title sec__title">(About)</h2>
-                <p class="about__copy sec__copy">
-                    <span class="mask-text">
-                        <span class="mask-text__inner">
-                            I am Cho Mirae. <br>a publisher, <br>who constantly strives <br>to better myself.
-                        </span>
-                    </span>
-                </p>
-                <p class="about__text sec__text">
-                    안녕하세요. 더 나은 나를 위해 끊임없이 노력하는 퍼블리셔 조미래입니다. <br>
-                    웹에이전시에 근무하며 다양한 프로젝트를 A-Z까지 개발 전반을 경험했습니다. <br>
-                    단순한 구현을 넘어서 고객의 니즈를 파악하고, 디자인에 대한 이해와 웹 표준, 접근성을 준수한 <br>
-                    시멘틱 마크업을 기반으로 인터랙티브 UI 제작 및 모션 구현을 할 수 있습니다.
-                </p>
-            </div>
-        </section>
-        <section id="skill" class="skill sec" data-bgcolor="gray">
-            <div class="skill__inner">
-                <div class="skill__heading">
-                    <h3 aria-hidden="true" class="skill__title skew-up">Skill</h2>
-                    <h3 aria-label="Skill" class="sr-only">Skill</h2>
-                    <p aria-hidden="true" class="skill__text skew-up"><span class="skill__text--small">My</span>Core</p>
-                    <p aria-label="My Core" class="sr-only">My Core</p>
+                <div class="about__title-wrap">
+                    <h2 aria-hidden="true" class="about__title">About <em>(Me)</em></h2>
+                    <h2 aria-label="About (Me)" class="sr-only">About (Me)</h2>
                 </div>
-                <ul class="skill__list">
-                    <li class="skill__item">
-                        <div class="skill__item-top">
-                            <p class="skill__item-num">(01)</p>
-                            <h4 class="skill__item-title">
-                                Web<br>
-                                Development</h4>
-                        </div>
-                        <p class="skill__item-desc">탄탄한 시멘틱 마크업을 기반으로 CSS, Javascript를 이용하여 UI를 개발합니다. UI 접근성을 고려한 크로스 브라우징, 반응형 웹사이트 구현 능력이 있습니다.</p>
-                    </li>
-                    <li class="skill__item">
-                        <div class="skill__item-top">
-                            <p class="skill__item-num">(02)</p>
-                            <h4 class="skill__item-title">
-                                UX/UI<br>
-                                Prototype
-                            </h4>
-                        </div>
-                        <p class="skill__item-desc">PhotoShop, Illustrator, Figma를 프로토타이핑 도구로써 활용할 수 있으며, 디자인에 대한 이해를 바탕으로 최적의 구현 방식을 생각할 수 있습니다.</p>
-                    </li>
-                    <li class="skill__item">
-                        <div class="skill__item-top">
-                            <p class="skill__item-num">(03)</p>
-                            <h4 class="skill__item-title">Cooperation</h4>
-                        </div>
-                        <p class="skill__item-desc">git을 활용한 형상관리와 소통능력으로 원활한 협업이 가능합니다. 또한 웹에이전시 근무 경력으로 다양한 직군의 사람들과 협업을 진행한 경험이 있습니다.</p>
-                    </li>
-                </ul>
+                <div class="about__keyword">
+                    <div class="about__keyword-item about__keyword-item--text">Creative</div>
+                    <div class="about__keyword-item about__keyword-item--text color">Interactive</div>
+                    <div class="about__keyword-item about__keyword-item--text color">Flexible</div>
+                    <div class="about__keyword-item about__keyword-item--text color">Challenge</div>
+                    <div class="about__keyword-item about__keyword-item--icon"><img src="./assets/images/icon-bulb.png" alt="전구 아이콘"></div>
+                    <div class="about__keyword-item about__keyword-item--icon"><img src="./assets/images/icon-light.png" alt="해 아이콘"></div>
+                    <div class="about__keyword-item about__keyword-item--icon"><img src="./assets/images/icon-happy.png" alt="미소 아이콘"></div>
+                </div>
+                <div class="about__skill skill">
+                    <ul class="skill__list">
+                        <li class="skill__item">
+                            <div class="skill__item-content">
+                                <h3 class="skill__item-title">Web Development</h3>
+                                <p class="skill__item-desc">탄탄한 시멘틱 마크업을 기반으로 CSS, Javascript를 이용하여 UI를 개발합니다.
+                                UI 접근성을 고려한 크로스 브라우징, 반응형 웹사이트 구현 능력이 있습니다.</p>
+                            </div>
+                            <ul class="skill__item-badge">
+                                <li class="skill__item-badge-item">HTML</li>
+                                <li class="skill__item-badge-item">CSS</li>
+                                <li class="skill__item-badge-item">JavaScript</li>
+                            </ul>
+                        </li>
+                        <li class="skill__item">
+                            <div class="skill__item-content">
+                                <h3 class="skill__item-title">UX/UI Prototype</h3>
+                                <p class="skill__item-desc">PhotoShop, Illustrator, Figma를 프로토타이핑 도구로써 활용할 수 있으며, 
+                                    디자인에 대한 이해를 바탕으로 최적의 구현 방식을 생각할 수 있습니다.</p>
+                            </div>
+                            <ul class="skill__item-badge">
+                                <li class="skill__item-badge-item">PhotoShop</li>
+                                <li class="skill__item-badge-item">Illustrator</li>
+                                <li class="skill__item-badge-item">Figma</li>
+                            </ul>
+                        </li>
+                        <li class="skill__item">
+                            <div class="skill__item-content">
+                                <h3 class="skill__item-title">Cooperation</h3>
+                                <p class="skill__item-desc">git을 활용한 형상관리와 소통능력으로 원활한 협업이 가능합니다. 
+                                    웹에이전시 근무 경력으로 다양한 직군의 사람들과 협업을 진행한 경험이 있습니다.</p>
+                            </div>
+                            <ul class="skill__item-badge">
+                                <li class="skill__item-badge-item">Git</li>
+                                <li class="skill__item-badge-item">Experience</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="about__scroll-text-wrap">
+                <div class="about__scroll-text">
+                    <span>Web Development</span>
+                    <span class="about__scroll-text--small">I create<br>websites</span>
+                    <span>UI/UX Prototype</span>
+                    <span class="about__scroll-text--small">I creative<br>publisher</span>
+                    <span>Cooperation</span>
+                </div>
             </div>
         </section>
-        <section id="project" class="project sec" data-bgcolor="black">
-            <div class="project__inner pd-none">
-                <h2 class="project__title sec__title line-anim">(Recent Projects)</h2>
+        <section id="project" class="project sec" data-mode="dark">
+            <div class="project__inner pd-none line-anim">
+                <div class="project__title-wrap">
+                    <h2 aria-hidden="true" class="project__title reveal-text"><em>(Recent)</em> Projects</h2>
+                    <h2 aria-label="Recent Projects" class="sr-only">Recent Projects</h2>
+                    <p class="project__desc">다양한 경험를 통해 퍼블리셔로서의 역량을 기른 후, 제가 배운 것들을 확인해 보는 동시에 <br>
+                        여러 문제를 경험하며 해결해 보기 위해 개인 프로젝트를 진행하는 중입니다.</p>
+                </div>
                 <ul class="project__list">
                     <li class="project__item">
                         <div class="project__item-text-box">
-                            <p class="project__item-num">(01)</p>
                             <h3 class="project__item-title">Lightroom Seoul</h3>
                             <p class="project__item-desc">
-                                GSAP, ScrollTrigger를 사용하여 인터렉션에 중점을 두었고,<br/>
+                                GSAP, ScrollTrigger를 사용하여 인터렉션 구현을 중점으로<br/>
                                 SCSS를 사용하여 클론 코딩한 반응형 사이트입니다.</p>
-                            <div class="project__item-badge">
-                                <p class="project__item-badge-text">기여도 100%</p>
-                                <ul class="project__item-badge-list">
-                                    <li class="project__item-badge-item">#SCSS</li>
-                                    <li class="project__item-badge-item">#JS</li>
-                                    <li class="project__item-badge-item">#GSAP</li>
-                                    <li class="project__item-badge-item">#ScrollTrigger</li>
-                                </ul>
+                            <div class="project__item-link project__item-link--in">
+                                <a class="tb-show" href="https://miraeae.github.io/lightroom-seoul" rel="noopener" target="_blank">
+                                    <span>Go Site</span>
+                                    <svg width="12" height="100%" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect y="5" width="1" height="1" fill="currentColor"></rect>
+                                        <rect x="1" y="4" width="1" height="1" fill="currentColor"></rect>
+                                        <rect x="2" y="3" width="1" height="1" fill="currentColor"></rect>
+                                        <rect x="3" y="2" width="1" height="1" fill="currentColor"></rect>
+                                        <rect x="4" y="1" width="1" height="1" fill="currentColor"></rect>
+                                        <rect x="5" width="1" height="6" fill="currentColor"></rect>
+                                        <rect width="6" height="1" fill="currentColor"></rect>
+                                    </svg>
+                                </a>
+                                <a href="https://github.com/miraeae/lightroom-seoul" rel="noopener" target="_blank">
+                                    <span>Code Review</span>
+                                    <svg width="12" height="100%" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect y="5" width="1" height="1" fill="currentColor"></rect>
+                                        <rect x="1" y="4" width="1" height="1" fill="currentColor"></rect>
+                                        <rect x="2" y="3" width="1" height="1" fill="currentColor"></rect>
+                                        <rect x="3" y="2" width="1" height="1" fill="currentColor"></rect>
+                                        <rect x="4" y="1" width="1" height="1" fill="currentColor"></rect>
+                                        <rect x="5" width="1" height="6" fill="currentColor"></rect>
+                                        <rect width="6" height="1" fill="currentColor"></rect>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
                         <div class="project__item-bg">
-                            <video loop autoplay muted playsinline data-wf-ignore="true">
-                                <source src="./assets/images/project-video-01.mp4">
-                            </video>
+                            <img src="./assets/images/project-lightroom-min.jpg" alt="Lightroom Seoul Clone coading 이미지">
                         </div>
-                        <a class="project__item-link" href="https://miraeae.github.io/lightroom-seoul/" rel="noopener" target="_blank">
+                        <a class="project__item-link pc-only" href="https://miraeae.github.io/lightroom-seoul/" rel="noopener" target="_blank">
                             <span class="sr-only">Go Site</span>
                         </a>
                     </li>
                     <li class="project__item last">
                         <div class="project__item-text-box">
-                            <p class="project__item-num">(02)</p>
                             <h3 class="project__item-title">2025 Portfolio</h3>
                             <p class="project__item-desc">
-                                HTML, SCSS, JS, GSAP, ScrollTrigger를 사용하여<br/>
+                                HTML, SCSS, JS, ,jQuery, GSAP, ScrollTrigger를 사용하여<br/>
                                 제작한 2025 버전 포트폴리오입니다.
                             </p>
-                            <div class="project__item-badge">
-                                <p class="project__item-badge-text">기여도 100%</p>
-                                <ul class="project__item-badge-list">
-                                    <li class="project__item-badge-item">#SCSS</li>
-                                    <li class="project__item-badge-item">#JS</li>
-                                    <li class="project__item-badge-item">#GSAP</li>
-                                    <li class="project__item-badge-item">#ScrollTrigger</li>
-                                </ul>
+                            <div class="project__item-link project__item-link--in">
+                                <a href="https://github.com/miraeae/portfolio" rel="noopener" target="_blank">
+                                    <span>Code Review</span>
+                                    <svg width="12" height="100%" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect y="5" width="1" height="1" fill="currentColor"></rect>
+                                        <rect x="1" y="4" width="1" height="1" fill="currentColor"></rect>
+                                        <rect x="2" y="3" width="1" height="1" fill="currentColor"></rect>
+                                        <rect x="3" y="2" width="1" height="1" fill="currentColor"></rect>
+                                        <rect x="4" y="1" width="1" height="1" fill="currentColor"></rect>
+                                        <rect x="5" width="1" height="6" fill="currentColor"></rect>
+                                        <rect width="6" height="1" fill="currentColor"></rect>
+                                    </svg>
+                                </a>
                             </div>
                         </div>
                         <div class="project__item-bg">
-                            <video loop autoplay muted playsinline data-wf-ignore="true">
-                                <source src="./assets/images/video-03.mp4">
-                            </video>
+                            <img src="./assets/images/project-portfolio.jpg" alt="2025 Portfolio 이미지">
                         </div>
-                        <a class="project__item-link" href="#" rel="noopener" target="_blank">
+                        <!-- <a class="project__item-link pc-only" href="#" rel="noopener" target="_blank">
                             <span class="sr-only">Go Site</span>
-                        </a>
+                        </a> -->
                     </li>
                 </ul>
             </div>
         </section>
-        <section id="subProject" class="sub-project sec" data-bgcolor="white">
+        <section id="subProject" class="sub-project sec" data-mode="light">
             <div class="sub-project__inner">
-                <div class="sub-project__heading">
-                    <h2 aria-hidden="true" class="sub-project__title skew-up">(~24) Projects</h2>
+                <div class="sub-project__title-wrap">
+                    <h2 aria-hidden="true" class="sub-project__title reveal-text"><em>(~2024)</em> Projects</h2>
                     <h2 aria-label="~2024 Projects" class="sr-only">~2024 Projects</h2>
+                    <p class="sub-project__desc">웹에이전시에 근무하며 다양한 프로젝트를 A-Z까지 개발 전반을 경험했습니다.<br>
+                        단순한 구현을 넘어서 디자인에 대한 높은 이해도를 바탕으로, 인터랙티브 UI 제작 및 모션 구현을 할 수 있습니다.
+                    </p>
                 </div>
                 <ul class="sub-project__list">
-                    <li class="sub-project__item">
-                        <a class="sub-project__item-link" href="https://gamept.kr/" rel="noopener" target="_blank">
-                            <div class="sub-project__item-img-box">
-                                <img src="./assets/images/sub-project-gamept.jpg" alt="GAME PT 이미지">
-                                <ul class="sub-project__item-badge">
-                                    <li class="sub-project__item-badge-item">반응형</li>
-                                </ul>
-                            </div>
-                        </a>
-                        <div class="sub-project__item-text-box">
-                            <h4 class="sub-project__item-title">GAME PT</h4>
-                            <p class="sub-project__item-desc">e스포츠 코칭 사이트 리뉴얼<br>
-                                #기획 50% #디자인 100% #퍼블리싱 100%</p>
-                        </div>
-                    </li>
                     <li class="sub-project__item sub-project__item--large">
-                        <a class="sub-project__item-link" href="https://colosseum.kr/" rel="noopener" target="_blank">
-                            <div class="sub-project__item-img-box">
-                                <img src="./assets/images/sub-project-coloseum.jpg" alt="Coloseum 이미지">
-                                <ul class="sub-project__item-badge">
-                                    <li class="sub-project__item-badge-item">반응형</li>
-                                    <li class="sub-project__item-badge-item">Lottie</li>
-                                </ul>
-                            </div>
-                        </a>
+                        <div class="sub-project__item-img-box">
+                            <img src="./assets/images/sub-project-coloseum.jpg" alt="Coloseum 이미지">
+                        </div>
                         <div class="sub-project__item-text-box">
                             <h4 class="sub-project__item-title">Coloseum</h4>
-                            <p class="sub-project__item-desc">종합 물류 사이트 리뉴얼<br>
-                                #디자인 100% #퍼블리싱 90%</p>
+                            <p class="sub-project__item-desc">종합 물류 사이트 리뉴얼</p>
+                        </div>
+                        <a class="sub-project__item-link" href="https://colosseum.kr/" rel="noopener" target="_blank">
+                            <span class="sr-only">사이트 바로가기</span>
+                        </a>
+                        <div class="sub-project__item-more modal">
+                            <a class="modal__toggle">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16.667 10.666H4.66699M10.667 4.66602V16.666" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </a>
+                            <div class="modal__content">
+                                <p>고객사의 기획팀 및 디자인팀과 협업하여 시안 제작부터 퍼블리싱까지 전 과정을 담당하였으며, 워드프레스 기반 사이트로 각 페이지의 특성을 반영한 다양한 UI 및 인터렉션을 구현한 프로젝트</p>
+                                <ul class="modal__content-badge">
+                                    <li class="modal__content-badge-item">디자인 100%</li>
+                                    <li class="modal__content-badge-item">퍼블리싱 90%</li>
+                                    <li class="modal__content-badge-item">반응형</li>
+                                    <li class="modal__content-badge-item">Lottie</li>
+                                </ul>
+                            </div>
                         </div>
                     </li>
                     <li class="sub-project__item">
-                        <a class="sub-project__item-link" href="https://www.uniondata.co.kr/" rel="noopener" target="_blank">
-                            <div class="sub-project__item-img-box">
-                                <img src="./assets/images/sub-project-union-data.jpg" alt="UnionSystems da# 이미지">
-                                <ul class="sub-project__item-badge">
-                                    <li class="sub-project__item-badge-item">Horizontal</li>
-                                    <li class="sub-project__item-badge-item">반응형</li>
+                        <div class="sub-project__item-img-box">
+                            <img src="./assets/images/sub-project-gamept.jpg" alt="GAME PT 이미지">
+                        </div>
+                        <div class="sub-project__item-text-box">
+                            <h4 class="sub-project__item-title">GAME PT</h4>
+                            <p class="sub-project__item-desc">e스포츠 코칭 사이트 리뉴얼</p>
+                        </div>
+                        <a class="sub-project__item-link" href="https://gamept.kr/" rel="noopener" target="_blank">
+                            <span class="sr-only">사이트 바로가기</span>
+                        </a>
+                        <div class="sub-project__item-more modal">
+                            <a class="modal__toggle">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16.667 10.666H4.66699M10.667 4.66602V16.666" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </a>
+                            <div class="modal__content">
+                                <p>기존 워드프레스 기반 홈페이지를 리뉴얼하며 서비스 기획 단계부터 참여해 창의적인 아이디어를 제안하고, 페이지별 특성에 맞는 UI 패턴과 인터랙션을 구현한 프로젝트</p>
+                                <ul class="modal__content-badge">
+                                    <li class="modal__content-badge-item">기획 50%</li>
+                                    <li class="modal__content-badge-item">디자인 100%</li>
+                                    <li class="modal__content-badge-item">퍼블리싱 100%</li>
+                                    <li class="modal__content-badge-item">반응형</li>
                                 </ul>
                             </div>
-                        </a>
-                            <div class="sub-project__item-text-box">
-                                <h4 class="sub-project__item-title">UnionSystems DA#</h4>
-                                <p class="sub-project__item-desc">데이터 모델링 툴 사이트 제작<br>
-                                    해당 프로젝트 이후 본사 사이트 제작 유치 및 담당<br>
-                                    #디자인 100% #퍼블리싱 100%
-                                </p>
-                            </div>
+                        </div>
                     </li>
-                    <li class="sub-project__item sub-project__item--long">
-                        <a class="sub-project__item-link" href="https://www.westworld.co.kr/" rel="noopener" target="_blank">
-                            <div class="sub-project__item-img-box">
-                                <img src="./assets/images/sub-project-ww.jpg" alt="WESTWORLD 이미지">
-                                <ul class="sub-project__item-badge">
-                                    <li class="sub-project__item-badge-item">Fullpage</li>
-                                    <li class="sub-project__item-badge-item">다국어</li>
-                                    <li class="sub-project__item-badge-item">반응형</li>
-                                </ul>
-                            </div>
-                        </a>
+                    <li class="sub-project__item">
+                        <div class="sub-project__item-img-box">
+                            <img src="./assets/images/sub-project-ww.jpg" alt="WESTWORLD 이미지">
+                        </div>
                         <div class="sub-project__item-text-box">
                             <h4 class="sub-project__item-title">WESTWORLD</h4>
-                            <p class="sub-project__item-desc">글로벌 VFX, DI/Mastering 전문 스튜디오 사이트 리뉴얼<br>
-                                #기획 50% #디자인 100% #퍼블리싱 100%</p>
+                            <p class="sub-project__item-desc">글로벌 VFX 스튜디오 사이트 리뉴얼<br>
+                        </div>
+                        <a class="sub-project__item-link" href="https://www.westworld.co.kr/" rel="noopener" target="_blank">
+                            <span class="sr-only">사이트 바로가기</span>
+                        </a>
+                        <div class="sub-project__item-more modal">
+                            <a class="modal__toggle">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16.667 10.666H4.66699M10.667 4.66602V16.666" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </a>
+                            <div class="modal__content">
+                                <p>서비스 리뉴얼 기획 단계부터 참여하여 시안 제작부터 퍼블리싱까지 전 과정을 수행하였으며, 워드프레스 기반으로 개발 및 다국어 설정을 완료. SEO 최적화 작업을 통해 구글과 네이버 검색 결과 상단에 노출된 프로젝트</p>
+                                <ul class="modal__content-badge">
+                                    <li class="modal__content-badge-item">디자인 100%</li>
+                                    <li class="modal__content-badge-item">퍼블리싱 100%</li>
+                                    <li class="modal__content-badge-item">Fullpage</li>
+                                    <li class="modal__content-badge-item">다국어</li>
+                                    <li class="modal__content-badge-item">반응형</li>
+                                </ul>
+                            </div>
                         </div>
                     </li>
                     <li class="sub-project__item">
-                        <a class="sub-project__item-link" href="https://www.healthyjawclinic.co.kr/" rel="noopener" target="_blank">
-                            <div class="sub-project__item-img-box">
-                                <img src="./assets/images/sub-project-healthyjaw-clinic.jpg" alt="샘플이미지5">
-                                <ul class="sub-project__item-badge">
-                                    <li class="sub-project__item-badge-item">반응형</li>
+                        <div class="sub-project__item-img-box">
+                            <img src="./assets/images/sub-project-union-data.jpg" alt="UnionSystems da# 이미지">
+                        </div>
+                        <div class="sub-project__item-text-box">
+                            <h4 class="sub-project__item-title">UnionSystems DA#</h4>
+                            <p class="sub-project__item-desc">데이터 모델링 툴 사이트 제작</p>
+                        </div>
+                        <a class="sub-project__item-link" href="https://www.uniondata.co.kr/" rel="noopener" target="_blank">
+                            <span class="sr-only">사이트 바로가기</span>
+                        </a>
+                        <div class="sub-project__item-more modal">
+                            <a class="modal__toggle">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16.667 10.666H4.66699M10.667 4.66602V16.666" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </a>
+                            <div class="modal__content">
+                                <p>고객사의 기획팀과 긴밀히 협업하여 시안 제작부터 퍼블리싱까지 주도하였으며, 다양한 UI 패턴과 인터랙션을 구현. 해당 프로젝트의 성공적인 수행을 바탕으로 본사 사이트 제작까지 확장된 프로젝트</p>
+                                <ul class="modal__content-badge">
+                                    <li class="modal__content-badge-item">디자인 100%</li>
+                                    <li class="modal__content-badge-item">퍼블리싱 100%</li>
+                                    <li class="modal__content-badge-item">반응형</li>
                                 </ul>
                             </div>
-                        </a>
+                        </div>
+                    </li>
+                    <li class="sub-project__item sub-project__item--small">
+                            <div class="sub-project__item-img-box">
+                                <img src="./assets/images/sub-project-healthyjaw-clinic.jpg" alt="healthyjaw clinic 이미지">
+                            </div>
                         <div class="sub-project__item-text-box">
                             <h4 class="sub-project__item-title">Healthyjaw Clinic</h4>
-                            <p class="sub-project__item-desc">구강내과치과의원 사이트 제작<br>
-                                #기획 100% #디자인 100% #퍼블리싱 100%</p>
+                            <p class="sub-project__item-desc">구강내과치과의원 사이트 제작</p>
+                        </div>
+                        <a class="sub-project__item-link" href="https://www.healthyjawclinic.co.kr/" rel="noopener" target="_blank">
+                            <span class="sr-only">사이트 바로가기</span>
+                        </a>
+                        <div class="sub-project__item-more modal">
+                            <a class="modal__toggle">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M16.667 10.666H4.66699M10.667 4.66602V16.666" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </a>
+                            <div class="modal__content">
+                                <p>서비스 기획 단계부터 디자인과 개발 전반을 담당하며, 워드프레스 기반 사이트로 다양한 UI 패턴과 인터랙션을 효과적으로 구현한 프로젝트</p>
+                                <ul class="modal__content-badge">
+                                    <li class="modal__content-badge-item">All in One 100%</li>
+                                    <li class="modal__content-badge-item">반응형</li>
+                                </ul>
+                            </div>
                         </div>
                     </li>
                 </ul>
@@ -313,67 +441,104 @@
                 </div>
             </div>
         </section>
-        <section id="goal" class="goal sec last" data-bgcolor="gray">
-            <div class="goal__inner">
-                <h2 class="goal__title sec__title">(Goal)</h2>
-                <h3 aria-hidden="true" class="goal__copy sec__copy skew-up">A Better Me</h3>
-                <h3 aria-label="A Better Me" class="sr-only">A Better Me</h3>
-                <p class="goal__text sec__text">
-                    퍼블리셔는 디자이너와 개발자의 언어를 다 이해할 수 있는 사람으로<br>
-                    요구사항을 명확히 이해해 최상의 결과물을 만들어내는 역할을 한다고 생각합니다.<br>
-                    저는 이러한 역할을 충실히 수행하며, 팀 내에서 신뢰받는 퍼블리셔가 되고 싶습니다.
-                </p>
-                <p class="goal__text sec__text">또한, 프론트엔드 관련 강의를 수강하여 개발 환경에 대한 이해도를 높이고, 개인적으로도 성장하고자 합니다.<br>
-                    스스로의 한계를 정하지 않고, 끊임없이 성장하며 회사의 발전에 기여하는 퍼블리셔가 되겠습니다.
-                </p>
+        <section id="goal" class="goal sec" data-mode="light">
+            <div class="goal__inner pd-none">
+                <div class="goal__title-wrap">
+                    <h2 class="goal__title">
+                        My <em>(Future)</em><br>
+                        Goals:
+                    </h2>
+                    <div class="particle">
+                        <svg width="400" height="100%" viewBox="0 0 286 286" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 16V32H15.5H31V48V64H47H63V80V96H79H95V111.5V127H47.5H0V143V159H47.5H95V174.5V190H79H63V206V222H47H31V238V254H15.5H0V270V286H16H32V270.5V255H48H64V239V223H80H96V207V191H111.5H127V238.5V286H143H159V238.5V191H174.5H190V207V223H206H222V239V255H238H254V270.5V286H270H286V270V254H270.5H255V238V222H239H223V206V190H207H191V174.5V159H238.5H286V143V127H238.5H191V111.5V96H207H223V80V64H239H255V48V32H270.5H286V16V-4.26173e-06H270H254V15.5V31H238H222V47V63H206H190V79V95H174.5H159V47.5V-4.26173e-06H143H127V47.5V95H111.5H96V79V63H80H64V47V31H48H32V15.5V-4.26173e-06H16H0V16Z" fill="#c4ff23"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="goal__list-wrap">
+                    <ul class="goal__list">
+                        <li class="goal__item">
+                            <div class="goal__item-inner">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M1 0H7V1H1V0ZM1 6V1H0V9H1V10H11V9H12V3H11V2H8V1H7V2H8V3H11V4H3V5H2V6H1ZM1 7V9H11V5H3V6H2V7H1Z" fill="currentColor"></path>
+                                <h3 class="goal__item-title">Learn</h3>
+                                <p class="goal__item-desc">프론트엔드 관련 React.js 등의 강의를 수강하며 개발 환경에 대한 이해도를 높이고, 지속적인 자기 개발을 통해 성장하고자 합니다. 
+                                    스스로의 한계를 정하지 않고 끊임없이 노력하며, 회사의 발전에도 기여하는 퍼블리셔가 되겠습니다.</p>
+                            </div>
+                        </li>
+                        <li class="goal__item">
+                            <div class="goal__item-inner">
+                                <h3 class="goal__item-title">Create</h3>
+                                <p class="goal__item-desc">최신 웹 트렌드와 기술을 반영하여 사용자 친화적인 UI를 구현하고, 웹 표준과 접근성을 고려한 퍼블리싱을 목표로 합니다. 
+                                    디자인과 기능이 조화를 이루는 결과물을 만들어내며, 차별화된 사용자 경험을 제공하는 퍼블리셔가 되겠습니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="goal__item">
+                            <div class="goal__item-inner">
+                                <h3 class="goal__item-title">Bridge</h3>
+                                <p class="goal__item-desc">퍼블리셔는 디자이너와 개발자의 언어를 이해하고, 두 분야를 잇는 다리 역할을 합니다.
+                                    서로의 요구사항을 조율하며 최적의 해결책을 도출하고, 원활한 소통을 바탕으로 사용자 경험과 기술적 완성도를 모두 갖춘 결과물을 만들어내겠습니다.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
     </main>
     <footer id="contact" class="footer">
-        <div class="footer__top">
-            <span>Work with me -</span>
-            <span>Work with me -</span>
-            <span>Work with me -</span>
-        </div>
-        <div class="contact">
-            <ul class="contact__list">
-                <li class="contact__item">
-                    <h5>(:E)</h5>
-                    <a href="mailto:minmimail@gmail.com">minmimail.com</a>
-                </li>
-                <li class="contact__item">
-                    <h5>(:P)</h5>
-                    <a href="tel:010-7514-7282">010-7514-7282</a>
-                </li>
-            </ul>
-        </div>
-        <div class="footer__btm">
-            <a href="https://github.com/miraeae" rel="noopener" target="_blank">GitHub</a>
-            <div class="top-btn">
-                <span>Back to top</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="100%" viewBox="0 0 11 16">
-                    <path d="M6.403 2v14H4.48V2z" fill="black"></path>
-                    <path fill="black" d="M10.854 5.644 5.427 0 0 5.644l1.36 1.414 4.067-4.23 4.067 4.23z" clip-rule="evenodd"></path>
-                </svg>
+        <div class="footer__inner">
+            <div class="footer__text-box">
+                <h2 class="footer__title sr-only">Contact</h2>
+                <p class="footer__text">Thank you for viewing my portfolio.</p>
+                <p class="footer__text">I'm looking forward to seeing you again.</p>
             </div>
-            <small class="footer__copyright">© 2025 Chomirae</small>
+            <div class="contact">
+                <ul class="contact__list">
+                    <li class="contact__item">
+                        <a href="mailto:minmimail@gmail.com">minmimail@gmail.com</a>
+                    </li>
+                    <li class="contact__item">
+                        <a href="tel:010-7514-7282">010-7514-7282</a>
+                    </li>
+                    <li class="contact__item">
+                        <a href="https://github.com/miraeae" rel="noopener" target="_blank">GitHub</a>
+                        <svg width="14" height="100%" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect y="5" width="1" height="1" fill="currentColor"></rect>
+                            <rect x="1" y="4" width="1" height="1" fill="currentColor"></rect>
+                            <rect x="2" y="3" width="1" height="1" fill="currentColor"></rect>
+                            <rect x="3" y="2" width="1" height="1" fill="currentColor"></rect>
+                            <rect x="4" y="1" width="1" height="1" fill="currentColor"></rect>
+                            <rect x="5" width="1" height="6" fill="currentColor"></rect>
+                            <rect width="6" height="1" fill="currentColor"></rect>
+                        </svg>
+                    </li>
+                </ul>
+            </div>
+            <small class="footer__copyright">©Chomirae</small>
         </div>
     </footer>
-    <div class="cursor-container pc-only">
+    <div class="cursor-wrap pc-only">
         <div class="cursor"></div>
         <div class="cursor-more">Go Site</div>
     </div>
-    <div class="progress">
-        <p class="progress__text">Scroll Progress</p>
-        <p class="progress__percent"></p>
-        <div class="progress__bar"></div>
+    <div class="scroll">
+        <div class="scroll-down scroll__item">
+            <span class="scroll-down__text scroll__item-text">Scroll to Explore</span>
+            <svg class="scroll-down__icon scroll__item-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 16 22">
+                <path d="M7.83333 1L7.83333 21M7.83333 21L14.5 14.3333M7.83333 21L1.16667 14.3333" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="scroll-progress scroll__item">
+            <span class="scroll-progress__text scroll__item-text">Scroll Progress</span>
+            <span class="scroll-progress__percent"></span>
+        </div>
+        <div class="top-btn scroll__item">
+            <span class="top-btn__text scroll__item-text">Scroll Back to top</span>
+            <svg class="top-btn__icon scroll__item-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 11 16">
+                <path d="M6.403 2v14H4.48V2z" fill="black"></path>
+                <path d="M10.854 5.644 5.427 0 0 5.644l1.36 1.414 4.067-4.23 4.067 4.23z" fill="black" clip-rule="evenodd"></path>
+            </svg>
+        </div>
+        <div class="scroll-bar"></div>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/split-type"></script>
-    <script src="./assets/js/script.js"></script>
 </body>
 </html>

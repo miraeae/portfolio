@@ -1,146 +1,176 @@
 /* Header */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    mix-blend-mode: difference;
-    color:$color-white;
-    transform: translateY(-100%);
+    position: relative;
 
-    &__inner {
-        position: relative;
+    &__inner{
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        right: 0;
         display: grid;
         grid-template-columns: 1fr minmax(100px, auto) 1fr;
         align-items: center;
-        padding-right: 2.5rem;
-        padding-left: 2.5rem;
-        padding-top: 1.5rem;
-        font-size: 1.125rem;
+        padding: 2rem 2.5rem 0;
+        font-size: 1rem;
+        mix-blend-mode: difference;
+        color: $color-white;
+        transform: translateY(-100%);
 
         @include tablet {
             grid-template-columns: 1fr 1fr;
-            padding-right: 2rem;
-            padding-left: 2rem;
+            padding: 2rem 2rem 0;
         }
         @include mobile {
             padding-right: 1.5rem;
             padding-left: 1.5rem;
-        }
+        }    
     }
 
-    .logo {
-        a{
-            font-size:1.4rem;
-            font-weight: 300;
-            line-height: 1;
-            @include tablet {
-                font-size:1.25rem;
-            }
-            @include mobile {
-                .logo__job{
-                    display:none;
-                }
-            }
+    &__logo {
+        font-weight: 300;
+        line-height: 1;
+        @include tablet {
+            font-size:1.13rem;
         }
-        &__name{
-            margin-right: 0.7rem;
+        a{
             &:after{
-                content:'●';
+                content: "";
                 position: relative;
                 display: inline-block;
-                font-size:0.7em;
+                width: 6px;
+                height: 6px;
+                top: -3px;
+                right: 1px;
+                background-color: #ffffff;
                 vertical-align: top;
-                padding-left: 3px;
             }
         }
     }
 
     .gnb{
-        display: flex;
-        justify-content: center;
-
         &__list{
             display: flex;
+            align-items: center;
             gap: 1.5rem;
+        }
 
-            .gnb__item{
-                font-size:1.25rem;
-                font-weight: 300;
+        &__item{
+            @include revealBtn;
+        }
+    }
+
+    &__contact{
+        @include revealBtn;
+    }
+    
+    .gnb-trigger {
+        position: relative;
+        justify-self: end;
+        width: 28px;
+        height: 24px;
+        cursor: pointer;
+        z-index: 100;
+        transition: opacity 0.25s ease;
+    
+        &__bar {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            background: $color-white;
+            width: 100%;
+            height: 2px;
+            transition: all 0.35s ease;
+            &:nth-child(2) {
+                top: 15px;
+            }
+        }
+    
+        &.active span{
+            background: $color-white !important;
+            &:nth-child(1) {
+                transform: translateY(5px) translateX(0) rotate(45deg);
+            }
+            &:nth-child(2) {
+                transform: translateY(-5px) translateX(0) rotate(-45deg);
             }
         }
     }
 
-    &__btn{
-        justify-self: flex-end;
-    }
-}
+    .gnb-mobile{
+        position: fixed;
+        z-index: 900;
+        right: 1rem;
+        top: 1rem;
+        height:0;
+        overflow: hidden;
 
+        &__inner{
+            border-radius: 5px;
+            background:rgba(255,255,255,0.5);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            color:$color-black;
+            padding: 2.8rem 8rem 2rem 0.8rem;
+            max-width:80vw;
 
-.gnb-mobile-trigger {
-    position: relative;
-    justify-self: end;
-    width: 28px;
-    height: 24px;
-    cursor: pointer;
-    z-index: 100;
-    transition: opacity 0.25s ease;
-
-    span {
-        background: $color-white;
-        width: 100%;
-        height: 2px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        transition: all 0.35s ease;
-        cursor: pointer;
-        
-        &:nth-child(2) {
-            top: 8px;
+            @include mobile {
+                padding: 2.2rem 6rem 1.5rem 0.5rem;
+            }
         }
-        &:nth-child(3) {
-            top: 16px;
-        }
-    }
 
-    &.active span{
-        background: $color-white !important;
-        &:nth-child(1) {
-            transform: translateY(8px) translateX(0) rotate(45deg);
+        ul{
+            li{
+                white-space: nowrap;
+                &:before,
+                &:after{
+                    content: '(';
+                    position: relative;
+                    opacity: 0;
+                    transition: opacity .5s;
+                    left: 3px;
+                }
+                &:after{
+                    content: ')';
+                    left: -3px;
+                }
+                // &:hover{
+                //     &:before,
+                //     &:after{
+                //         opacity: 1;
+                //     }
+                // }
+            }
         }
-        &:nth-child(2) {
-            opacity: 0;
-        }
-        &:nth-child(3) {
-            transform: translateY(-8px) translateX(0) rotate(-45deg);
-        }
-    }
-}
 
-.gnb-mobile{
-    backdrop-filter: blur(10px);
-    position: fixed;
-    z-index: 1000;
-    right: 2rem;
-    top:4.3rem;
+        &__item{
+            font-size:2rem;
+            font-weight: 500;
+            line-height: 1.5;
 
-    &__inner{
-        background: rgba(255,255,255,0.1);
-        padding: 1.3rem 1.5rem;
-        border-radius: 1rem;
-        opacity: 0;
-        @include mobile {
-            padding: 1rem 1.2rem;
+            @include mobile {
+                font-size: 1.8rem;
+            }
+
+            @include tablet {
+                font-size: 1.6rem;
+            }
         }
-    }
 
-    &__item{
-        font-size:1.3rem;
-        line-height: 1.5;
-        @include mobile {
+        &__contact-list{
             font-size: 1.13rem;
+            margin-top: 1rem;
+            margin-left: 0.7rem;
+
+            @include mobile {
+                font-size: 1.0625rem;
+                margin-top: 0.6rem;
+                margin-left: 0.3rem;
+            }
         }
+    }
+
+    &__contact{
+        justify-self: flex-end;
     }
 }
