@@ -67,6 +67,9 @@ time, mark, audio, video {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -586,13 +589,12 @@ body {
   transform-origin: right;
 }
 .footer .contact__item svg {
-  padding: 0 3px;
   vertical-align: middle;
 }
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .footer .contact__item svg {
-    width: 10px;
-    padding: 0;
+    width: 9px;
+    margin-bottom: 2px;
   }
 }
 
@@ -843,9 +845,11 @@ body {
   margin-top: 1rem;
   font-size: 1.0625rem;
 }
+.project__item-text-box .project__item-link--in a {
+  display: block;
+}
 @media (max-width: 1024px) {
   .project__item-text-box .project__item-link--in a {
-    display: block;
     margin-bottom: 0.2rem;
   }
 }
@@ -877,11 +881,14 @@ body {
   transform-origin: right;
 }
 .project__item-text-box .project__item-link--in a svg {
-  width: 10px;
+  width: 11px;
   margin-left: 3px;
 }
-.project__item-text-box .project__item-link--in a svg rect {
-  fill: #c4ff23;
+@media (max-width: 1024px) {
+  .project__item-text-box .project__item-link--in a svg {
+    width: 9px;
+    margin-left: 2px;
+  }
 }
 .project__item:hover .project__item-text-box {
   height: 155px;
@@ -1370,7 +1377,7 @@ body {
   position: fixed;
   z-index: 999;
   bottom: 2rem;
-  left: 2.5rem;
+  right: 2.5rem;
   height: 1.5625rem;
   color: #1a1a1a;
   overflow: hidden;
@@ -1379,13 +1386,13 @@ body {
 }
 @media (max-width: 1024px) {
   .scroll {
-    left: 2rem;
+    right: 2rem;
     bottom: 1.5rem;
   }
 }
 @media (max-width: 767px) {
   .scroll {
-    left: 1.5rem;
+    right: 1.5rem;
     bottom: 1rem;
   }
 }
@@ -1429,7 +1436,7 @@ body {
   position: fixed;
   z-index: 999;
   bottom: 2rem;
-  right: 2.5rem;
+  left: 2.5rem;
   font-size: 1rem;
   font-weight: 500;
   color: #ffffff;
@@ -1437,13 +1444,13 @@ body {
 }
 @media (max-width: 1024px) {
   .copyright {
-    right: 2rem;
+    left: 2rem;
     bottom: 1.5rem;
   }
 }
 @media (max-width: 767px) {
   .copyright {
-    right: 1.5rem;
+    left: 1.5rem;
     bottom: 1rem;
   }
 }

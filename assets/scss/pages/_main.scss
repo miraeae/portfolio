@@ -261,8 +261,9 @@
                 font-size: 1.0625rem;
 
                 a{
+                    display: block;
+
                     @include tablet {
-                        display: block;
                         margin-bottom: 0.2rem;
                     }
                     
@@ -271,11 +272,12 @@
                     }
     
                     svg{
-                        width: 10px;
+                        width: 11px;
                         margin-left: 3px;
-    
-                        rect{
-                            fill: $color-primary;
+
+                        @include tablet {
+                            width: 9px;
+                            margin-left: 2px;
                         }
                     }
                 }
@@ -785,7 +787,7 @@
     position: fixed;
     z-index: 999;
     bottom: 2rem;
-    left:2.5rem;
+    right: 2.5rem;
     // height: 2.8rem;
     height: 1.5625rem;
     color: $color-black;
@@ -794,12 +796,12 @@
     mix-blend-mode: difference;
 
     @include tablet{
-        left: 2rem;
+        right: 2rem;
         bottom: 1.5rem;
     }
 
     @include mobile{
-        left: 1.5rem;
+        right: 1.5rem;
         bottom: 1rem;
     }
     
@@ -849,19 +851,19 @@
     position: fixed;
     z-index: 999;
     bottom: 2rem;
-    right: 2.5rem;
+    left: 2.5rem;
     font-size: 1rem;
     font-weight: 500;
     color: $color-white;
     mix-blend-mode: difference;
 
     @include tablet{
-        right: 2rem;
+        left: 2rem;
         bottom: 1.5rem;
     }
 
     @include mobile{
-        right: 1.5rem;
+        left: 1.5rem;
         bottom: 1rem;
     }
 }
