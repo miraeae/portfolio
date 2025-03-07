@@ -27,24 +27,24 @@ gsap.ticker.lagSmoothing(0)
 ////////// 1. Hero
 function hero() {
 
-    // ram
-    var HeroImgNum = $(".hero__img-box").length;
-    var HeroImgArray = ["./assets/images/hero-img01.jpg", "./assets/images/hero-img02.jpg", "./assets/images/hero-img03.jpg", "./assets/images/hero-img04.jpg"];
+    // ramdom image
+    // var HeroImgNum = $(".hero__img-box").length;
+    // var HeroImgArray = ["./assets/images/hero-img01.jpg", "./assets/images/hero-img02.jpg", "./assets/images/hero-img03.jpg", "./assets/images/hero-img04.jpg"];
 
-    for (i = 0; i < HeroImgNum; i += 1) {
-    // Math.random() 함수는 0~1 사이의 임의의 난수를 반환, Math.floor(num) num 이하 가장 큰 정수를 반환 (소수점 아래 내림)
-    // Math.random() 에 배열의 길이를 곱하고 Math.floor(내림)을 적용 시키면 0, 1, 2, 3 중의 하나의 수가 나옴
-    var RandomNum = Math.floor(Math.random() * HeroImgNum);
+    // for (i = 0; i < HeroImgNum; i += 1) {
+    // // Math.random() 함수는 0~1 사이의 임의의 난수를 반환, Math.floor(num) num 이하 가장 큰 정수를 반환 (소수점 아래 내림)
+    // // Math.random() 에 배열의 길이를 곱하고 Math.floor(내림)을 적용 시키면 0, 1, 2, 3 중의 하나의 수가 나옴
+    // var RandomNum = Math.floor(Math.random() * HeroImgNum);
 
-    if (HeroImgArray.indexOf(RandomNum) === -1) { // 중복방지 // indexOf는 배열에서 지정된 요소를 찾을 수 있는 첫 번째 인덱스를 반환하고 존재하지 않으면 -1을 반환
-        HeroImgArray.push(RandomNum); //push() 함수는 배열추가
-        $('.hero__img-box').eq(i).append(
-            '<img src="'+HeroImgArray[RandomNum]+'" alt="Hero 비쥬얼 이미지">'
-        );
-        } else {
-            i -= 1;
-        }
-    }
+    // if (HeroImgArray.indexOf(RandomNum) === -1) { // 중복방지 // indexOf는 배열에서 지정된 요소를 찾을 수 있는 첫 번째 인덱스를 반환하고 존재하지 않으면 -1을 반환
+    //     HeroImgArray.push(RandomNum); //push() 함수는 배열추가
+    //     $('.hero__img-box').eq(i).append(
+    //         '<img src="'+HeroImgArray[RandomNum]+'" alt="">'
+    //     );
+    //     } else {
+    //         i -= 1;
+    //     }
+    // }
 
 
     // Animation
