@@ -264,6 +264,9 @@ function subProject() {
     const toggles = document.querySelectorAll(".modal__toggle");
 
     toggles.forEach(toggle => {
+        toggle.setAttribute("aria-label", "더보기 열기");
+        toggle.setAttribute("aria-expanded", "false");
+
         toggle.addEventListener("click", function () {
             $(this).toggleClass("active");
             const modal = $(this).parent(".modal");
@@ -274,6 +277,11 @@ function subProject() {
             const size = isDesktop ? { open: "360px", close: "45px" } : { open: "320px", close: "35px" };
             const borderRadius = isActive ? "20px" : isDesktop ? "45px" : "35px";
 
+            $(this).attr({
+                "aria-label": isActive ? "더보기 닫기" : "더보기 열기",
+                "aria-expanded": isActive.toString() //isActive는 true 또는 false 값을 가지는 Boolean 타입 //.toString()은 JavaScript에서 값을 문자열로 변환하는 메서드
+            });
+    
             gsap.timeline()
                 .to(modal, { width: isActive ? size.open : size.close, height: isActive ? "auto" : size.close, borderRadius })
                 .to(content, { opacity: isActive ? 1 : 0 }, "<");
@@ -367,11 +375,15 @@ function layout() {
     
     $(".gnb-trigger").click(function() {
         $(this).toggleClass("active");
+        $(this).attr("aria-label", "메뉴 닫기");
+        $(this).attr("aria-expanded", "true");
     
         if($(this).hasClass("active")){
-            gnbTl.play()
+            gnbTl.play();
         }else{
-            gnbTl.reverse()
+            gnbTl.reverse();
+            $(this).attr("aria-label", "메뉴 열기");
+            $(this).attr("aria-expanded", "false");
         }
     });
 
