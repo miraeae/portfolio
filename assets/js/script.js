@@ -467,7 +467,7 @@ function layout() {
             end: "center center",
             scrub: 1,
             //markers: true,
-            //refreshPriority: 0,
+            refreshPriority: 0,
         }
     });
 
