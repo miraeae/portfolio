@@ -73,20 +73,32 @@ function hero() {
 
 ////////// 2. About
 function about() {
-    gsap.fromTo('.about__copy--en span', {
-        "background-size":"0% 100%"
-    },{
-        "background-size":"100% 100%",
+    const aboutTl = gsap.timeline({
         scrollTrigger: {
-            trigger:".about",
-            pinnedContainer:".about", //고정할 대상(영역)
-            start:"top 40%",
-            endTrigger:".about__copy--en",
-            end:"center center",
-            scrub:true,
-            //markers: true,
-        }
-    })
+            trigger: ".about",
+            start: "top top",
+            end: "300%",
+            scrub: 1,
+            pin: true
+        } 
+    });
+
+    function aboutTitleTl(i) {
+        return gsap.timeline()
+        .to(`.about__title span:nth-child(${i})`, {opacity: 1, delay: 0.5})
+        .to(`.about__subtitle span:nth-child(${i})`, {autoAlpha:1})
+        .to(`.about__title span:nth-child(${i})`, {opacity: 0.2 , delay: 0.5})
+        .to(`.about__subtitle span:nth-child(${i})`, {autoAlpha:0}, '<')
+    }
+
+    aboutTl
+    .to(".about__title span:not(:nth-child(1))", {opacity: 0.2})
+    .add(aboutTitleTl(1), '<')
+    .add(aboutTitleTl(2))
+    .add(aboutTitleTl(3))
+    .to(".about__title span", {opacity: "1"})
+    .to(".about__text", {autoAlpha: 1}, '<')
+    .to({}, { duration: 1 });
 }
 
 ////////// 3. Projects
