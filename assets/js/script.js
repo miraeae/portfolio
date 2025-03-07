@@ -52,7 +52,6 @@ function hero() {
     const heroTl = gsap.timeline()
 
     heroTl
-    .set(".hero__inner", {scale: 0.2})
     .to(".header__inner", {y: 0, duration: 1, delay: 1})
     .to(".hero__img-box:not(:first-child)", {y: 0, stagger: 0.5}, "<")
     .from(".hero__title span:first-child span", {yPercent: -100, duration: 1})
