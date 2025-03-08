@@ -1,52 +1,3 @@
-/* font-family: "NyghtSerif", serif; */
-@font-face {
-  font-family: "NyghtSerif";
-  font-weight: 300;
-  font-style: normal;
-  src: url("../fonts/NyghtSerif-Light.woff2") format("woff2");
-}
-@font-face {
-  font-family: "NyghtSerif";
-  font-weight: 300;
-  font-style: italic;
-  src: url("../fonts/NyghtSerif-LightItalic.woff2") format("woff2");
-}
-@font-face {
-  font-family: "NyghtSerif";
-  font-weight: 400;
-  font-style: normal;
-  src: url("../fonts/NyghtSerif-Regular.woff2") format("woff2");
-}
-@font-face {
-  font-family: "NyghtSerif";
-  font-weight: 400;
-  font-style: italic;
-  src: url("../fonts/NyghtSerif-RegularItalic.woff2") format("woff2");
-}
-@font-face {
-  font-family: "NyghtSerif";
-  font-weight: 500;
-  font-style: normal;
-  src: url("../fonts/NyghtSerif-Medium.woff2") format("woff2");
-}
-@font-face {
-  font-family: "NyghtSerif";
-  font-weight: 500;
-  font-style: italic;
-  src: url("../fonts/NyghtSerif-MediumItalic.woff2") format("woff2");
-}
-@font-face {
-  font-family: "NyghtSerif";
-  font-weight: 600;
-  font-style: normal;
-  src: url("../fonts/NyghtSerif-Bold.woff2") format("woff2");
-}
-@font-face {
-  font-family: "NyghtSerif";
-  font-weight: 600;
-  font-style: italic;
-  src: url("../fonts/NyghtSeri-BoldItalic.woff2") format("woff2");
-}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -106,6 +57,55 @@ img {
   max-width: 100%;
 }
 
+/* Font */
+@font-face {
+  font-family: "NyghtSerif";
+  font-weight: 300;
+  font-style: normal;
+  src: url("../fonts/NyghtSerif-Light.woff2") format("woff2");
+}
+@font-face {
+  font-family: "NyghtSerif";
+  font-weight: 300;
+  font-style: italic;
+  src: url("../fonts/NyghtSerif-LightItalic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "NyghtSerif";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/NyghtSerif-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "NyghtSerif";
+  font-weight: 400;
+  font-style: italic;
+  src: url("../fonts/NyghtSerif-RegularItalic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "NyghtSerif";
+  font-weight: 500;
+  font-style: normal;
+  src: url("../fonts/NyghtSerif-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "NyghtSerif";
+  font-weight: 500;
+  font-style: italic;
+  src: url("../fonts/NyghtSerif-MediumItalic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "NyghtSerif";
+  font-weight: 600;
+  font-style: normal;
+  src: url("../fonts/NyghtSerif-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "NyghtSerif";
+  font-weight: 600;
+  font-style: italic;
+  src: url("../fonts/NyghtSeri-BoldItalic.woff2") format("woff2");
+}
 @media (max-width: 1024px) {
   html {
     font-size: 15px;
@@ -348,6 +348,7 @@ body {
 .header__logo {
   font-size: 1.25rem;
   line-height: 1;
+  font-weight: 500;
 }
 @media (max-width: 1024px) {
   .header__logo {
@@ -619,6 +620,7 @@ body {
   height: 100%;
   z-index: 2;
   color: #ffffff;
+  opacity: 0;
 }
 .hero__text-box .hero__title {
   height: 100%;
@@ -651,6 +653,11 @@ body {
   overflow: hidden;
   top: 50%;
   transform: translateY(-50%);
+}
+@media (max-width: 767px) {
+  .hero__text-box .hero__info {
+    font-size: 0.9286rem;
+  }
 }
 .hero__img-wrap {
   position: absolute;
@@ -745,6 +752,7 @@ body {
 @media (max-width: 767px) {
   .about__text {
     font-size: 1rem;
+    max-width: 90%;
   }
   .about__text br {
     display: none;
@@ -853,6 +861,9 @@ body {
   margin-top: 0.5rem;
 }
 @media (max-width: 767px) {
+  .project__item-text-box .project__item-desc {
+    font-size: 0.9286rem;
+  }
   .project__item-text-box .project__item-desc br {
     display: none;
   }

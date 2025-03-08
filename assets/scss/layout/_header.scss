@@ -27,6 +27,8 @@
     &__logo {
         font-size: 1.25rem;
         line-height: 1;
+        font-weight: 500;
+        
         @include tablet {
             font-size:1.13rem;
         }

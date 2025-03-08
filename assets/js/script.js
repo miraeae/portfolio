@@ -1,15 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-    gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
-    layout();
-    
-    hero(); // 1
-    about(); // 2
-    project(); // 3
-    subProject() // 3-2
-    goal(); // 4
-
-});
+layout();
+hero(); // 1
+about(); // 2
+project(); // 3
+subProject() // 3-2
+goal(); // 4
 
 
 ////////// 0. 부드럽게 스크롤
@@ -26,7 +22,6 @@ gsap.ticker.lagSmoothing(0)
 
 ////////// 1. Hero
 function hero() {
-
     // ramdom image
     // var HeroImgNum = $(".hero__img-box").length;
     // var HeroImgArray = ["./assets/images/hero-img01.jpg", "./assets/images/hero-img02.jpg", "./assets/images/hero-img03.jpg", "./assets/images/hero-img04.jpg"];
@@ -46,7 +41,6 @@ function hero() {
     //     }
     // }
 
-
     // Animation
     const hero = document.getElementById("hero");
     const heroTl = gsap.timeline()
@@ -54,7 +48,8 @@ function hero() {
     heroTl
     .to(".header__inner", {y: 0, duration: 1, delay: 1})
     .to(".hero__img-box:not(:first-child)", {y: 0, stagger: 0.5}, "<")
-    .from(".hero__title span:first-child span", {yPercent: -100, duration: 1})
+    .to(".hero__text-box", {opacity: 1})
+    .from(".hero__title span:first-child span", {yPercent: -100, duration: 1}, "<")
     .from(".hero__title span:last-child span", {yPercent: 100, duration: 1}, "<")
     .to(".hero__inner", {scale: 1, duration:0.5, ease: "none"})
     .from(".hero__info-item", {yPercent: 100, stagger: 0.2, duration: 0.8})
@@ -76,7 +71,7 @@ function about() {
         scrollTrigger: {
             trigger: ".about",
             start: "top top",
-            end: "300%",
+            end: "400%",
             scrub: 1,
             pin: true
         } 
@@ -327,7 +322,6 @@ function subProject() {
                 start: "-=100 center",
                 end: "bottom center",
                 // markers: true,
-                // id: "counter",
                 onEnter: () => {
                     updateCounter();
                 }
@@ -454,6 +448,7 @@ function layout() {
         return false;
     });
     
+    // 클릭 방지
     $("a[href='#']").click(function(e){
         e.preventDefault();
     });
