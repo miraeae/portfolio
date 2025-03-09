@@ -90,6 +90,28 @@ body {
     }
 }
 
+.skip-menu {
+    position: relative;
+	z-index: 1000;
+
+    &__link {
+        position: absolute;
+        top: -3.125rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $color-black;
+        border: 1px solid rgba(255,255,255,0.2);
+        text-align: center;
+        padding: 0.625rem 1.25rem;
+        font-size: 1rem;
+        color: $color-white;
+        border-radius: 4px;
+
+        &:focus {
+            top: 1.25rem;
+        }
+    }
+}
 
 .cursor {
     position: absolute;

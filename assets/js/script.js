@@ -150,8 +150,7 @@ function project() {
                 start:"top bottom",
                 end: "center center",
                 scrub: 1,
-                // markers: true,
-                // id : "itemIn",
+                refreshPriority: 0
             }
         })
         .to(item, {scale: 1, ease: "none", duration: 1}, 0)
@@ -191,6 +190,22 @@ function project() {
             ease:'none'
         });
     })
+
+    document.querySelectorAll(".project .project__item-link").forEach(link => {
+        if(window.innerWidth >= 1024) {
+            link.addEventListener("focus", function() {
+                this.closest('.project__item-link-box') //closest: 주어진 선택자와 일치하는 요소를 찾을 때까지, 자기 자신을 포함해 위쪽(부모 방향, 문서 루트까지)으로 문서 트리를 순회
+                ?.closest('.project__item-text-box') // ?.(옵셔널 체이닝): 객체 속성에 접근할 때, 해당 속성이 없을 경우 오류가 발생하는 것을 방지하는 연산자
+                ?.style.setProperty('height', '155px');
+            });
+        
+            link.addEventListener('blur', function() {
+                this.closest('.project__item-link-box')
+                    ?.closest('.project__item-text-box')
+                    ?.style.removeProperty('height');
+            });
+        }
+    });
 }
 
 ///// 3-2. Sub Project
@@ -270,10 +285,11 @@ function subProject() {
     const toggles = document.querySelectorAll(".modal__toggle");
 
     toggles.forEach(toggle => {
+        toggle.setAttribute("tabindex", "0");
         toggle.setAttribute("aria-label", "더보기 열기");
         toggle.setAttribute("aria-expanded", "false");
 
-        toggle.addEventListener("click", function () {
+        function toggleModal() {
             $(this).toggleClass("active");
             const modal = $(this).parent(".modal");
             const content = $(this).next(".modal__content");
@@ -283,16 +299,25 @@ function subProject() {
             const size = isDesktop ? { open: "360px", close: "45px" } : { open: "320px", close: "35px" };
             const borderRadius = isActive ? "20px" : isDesktop ? "45px" : "35px";
 
-            $(this).attr({
-                "aria-label": isActive ? "더보기 닫기" : "더보기 열기",
-                "aria-expanded": isActive.toString() //isActive는 true 또는 false 값을 가지는 Boolean 타입 //.toString()은 JavaScript에서 값을 문자열로 변환하는 메서드
-            });
+            this.setAttribute("aria-label", isActive ? "더보기 닫기" : "더보기 열기");
+            this.setAttribute("aria-expanded", isActive.toString()); //isActive는 true 또는 false 값을 가지는 Boolean 타입 //.toString()은 JavaScript에서 값을 문자열로 변환하는 메서드
     
             gsap.timeline()
                 .to(modal, { width: isActive ? size.open : size.close, height: isActive ? "auto" : size.close, borderRadius })
                 .to(content, { opacity: isActive ? 1 : 0 }, "<");
+        }
+
+        toggle.addEventListener("click", toggleModal);
+
+        toggle.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                toggleModal.call(this); // 현재 요소에서 실행되도록 call(this) 사용
+            }
         });
+
+    // Issue: 가로 스크롤이라 포커스가 이동해도 가로로 이동을 안하는 것 개선 필요
     });
+
 
 
     // Counter
@@ -406,7 +431,7 @@ function layout() {
             $(".cursor").removeClass("active");
         });
 
-        $("[class*=project__item-link]:not(.project__item-link--in)").hover(function() {
+        $("[class$=project__item-link], .project__item-link--overlay").hover(function() {
             e.preventDefault();
             $(".cursor").removeClass("active");
             $(".cursor-more").addClass("active");
@@ -443,7 +468,8 @@ function layout() {
 
 
     // Top Button
-    $(".top-btn").click(function(){
+    $(".top-btn").click(function(e){
+        e.preventDefault();
         $("html, body").animate({scrollTop : 0}, 500);
         return false;
     });

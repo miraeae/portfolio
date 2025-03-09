@@ -10,7 +10,7 @@
     <meta property="og:title" content="조미래 포트폴리오">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://miraeae.github.io/portfolio">
-    <meta property="og:description" content="웹 퍼블리셔 조미래의 포트폴리오">
+    <meta property="og:description" content="웹 퍼블리셔 조미래의 2025 포트폴리오입니다.">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +23,9 @@
     <script src="https://unpkg.com/split-type"></script><script src="./assets/js/script.js" defer></script>
 </head>
 <body>
+    <div class="skip-menu">
+        <a href="#container" class="skip-menu__link">본문 바로가기</a>
+    </div>
     <header class="header">
         <div class="header__inner">
             <div class="header__logo">
@@ -90,15 +93,15 @@
             </div>
         </div>
     </header>
-    <main class="container">
+    <main id="container" class="main">
         <section id="hero" class="sec hero">
             <div class="hero__inner">
                 <div class="hero__text-box">
+                    <h1 class="sr-only">Future Folio</h1>
                     <div aria-hidden="true" class="hero__title">
                         <span><span>Future</span></span>
                         <span><span>Folio</span></span>
                     </div>
-                    <h1 aria-label="Future Folio" class="sr-only">Future Folio</h1>
                     <ul class="hero__info">
                         <li class="hero__info-item">Publisher</li>
                         <li class="hero__info-item">Chomirae</li>
@@ -143,7 +146,7 @@
             <div class="project__inner">
                 <div class="project__title-wrap">
                     <h2 aria-hidden="true" class="project__title reveal-text">Works</h2>
-                    <h2 aria-label="Works" class="sr-only">Works</h2>
+                    <h2 class="sr-only">Works</h2>
                 </div>
                 <ul class="project__list">
                     <li class="project__item">
@@ -154,27 +157,21 @@
                                 시퀀스 스크롤 애니메이션을 적용하고, IR 기법과 WAI-ARIA, Skip Menu 등의 <br>
                                 기능을 활용하여 웹 접근성을 고려한 반응형 클론 코딩 사이트입니다.
                             </p>
-                            <div class="project__item-link project__item-link--in">
-                                <a class="tb-show" href="https://miraeae.github.io/scoutmotors" rel="noopener" target="_blank">
-                                    <span>Go Site</span>
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M2 22L22 2M22 2H2M22 2V22" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
+                            <div class="project__item-link-box">
+                                <a class="project__item-link tb-show" href="https://miraeae.github.io/scoutmotors" rel="noopener" target="_blank">
+                                    <span>Go to Site</span>
                                 </a>
-                                <a href="https://github.com/miraeae/scoutmotors" rel="noopener" target="_blank">
+                                <a class="project__item-link project__item-link--review" href="https://github.com/miraeae/scoutmotors" rel="noopener" target="_blank">
                                     <span>Code Review</span>
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M2 22L22 2M22 2H2M22 2V22" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
                                 </a>
                             </div>
                         </div>
                         <div class="project__item-img-box">
-                            <a class="project__item-link" href="https://miraeae.github.io/scoutmotors/" rel="noopener" target="_blank">
-                                <span class="sr-only">사이트 바로가기</span>
-                                <img src="./assets/images/project-scoutmotors.jpg" alt="Scout Motors 이미지">
-                            </a>
+                            <img src="./assets/images/project-scoutmotors.jpg" alt="Scout Motors 이미지">
                         </div>
+                        <a class="project__item-link project__item-link--overlay pc-only" href="https://miraeae.github.io/scoutmotors" rel="noopener" target="_blank">
+                            <span class="sr-only">Go to Site</span>
+                        </a>
                     </li>
                     <li class="project__item">
                         <div class="project__item-text-box">
@@ -183,27 +180,21 @@
                             <p class="project__item-desc">
                                 GSAP 라이브러리를 활용하여 인터랙션을 중점적으로 구현하였으며, <br>
                                 SCSS를 사용하여 클론 코딩한 반응형 사이트입니다.</p>
-                            <div class="project__item-link project__item-link--in">
-                                <a class="tb-show" href="https://miraeae.github.io/sofwave" rel="noopener" target="_blank">
-                                    <span>Go Site</span>
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M2 22L22 2M22 2H2M22 2V22" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
+                            <div class="project__item-link-box">
+                                <a class="project__item-link tb-show" href="https://miraeae.github.io/sofwave" rel="noopener" target="_blank">
+                                    <span>Go to Site</span>
                                 </a>
-                                <a href="https://github.com/miraeae/sofwave" rel="noopener" target="_blank">
+                                <a class="project__item-link project__item-link--review" href="https://github.com/miraeae/sofwave" rel="noopener" target="_blank">
                                     <span>Code Review</span>
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M2 22L22 2M22 2H2M22 2V22" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
                                 </a>
                             </div>
                         </div>
                         <div class="project__item-img-box">
-                            <a class="project__item-link" href="https://miraeae.github.io/sofwave/" rel="noopener" target="_blank">
-                                <span class="sr-only">사이트 바로가기</span>
-                                <img src="./assets/images/project-sofwave.jpg" alt="Sofwave 이미지">
-                            </a>
+                            <img src="./assets/images/project-sofwave.jpg" alt="Sofwave 이미지">
                         </div>
+                        <a class="project__item-link project__item-link--overlay pc-only" href="https://miraeae.github.io/sofwave/" rel="noopener" target="_blank">
+                            <span class="sr-only">Go to Site</span>
+                        </a>
                     </li>
                     <li class="project__item last">
                         <div class="project__item-text-box">
@@ -212,27 +203,21 @@
                             <p class="project__item-desc">
                                 GSAP, ScrollTrigger를 사용하여 인터랙션을 중점적으로 구현하였으며,<br>
                                 SCSS를 사용하여 클론 코딩한 반응형 사이트입니다.</p>
-                            <div class="project__item-link project__item-link--in">
-                                <a class="tb-show" href="https://miraeae.github.io/lightroom-seoul" rel="noopener" target="_blank">
-                                    <span>Go Site</span>
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M2 22L22 2M22 2H2M22 2V22" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
+                            <div class="project__item-link-box">
+                                <a class="project__item-link tb-show" href="https://miraeae.github.io/lightroom-seoul" rel="noopener" target="_blank">
+                                    <span>Go to Site</span>
                                 </a>
-                                <a href="https://github.com/miraeae/lightroom-seoul" rel="noopener" target="_blank">
+                                <a class="project__item-link project__item-link--review" href="https://github.com/miraeae/lightroom-seoul" rel="noopener" target="_blank">
                                     <span>Code Review</span>
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M2 22L22 2M22 2H2M22 2V22" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
                                 </a>
                             </div>
                         </div>
                         <div class="project__item-img-box">
-                            <a class="project__item-link" href="https://miraeae.github.io/lightroom-seoul/" rel="noopener" target="_blank">
-                                <span class="sr-only">사이트 바로가기</span>
-                                <img src="./assets/images/project-lightroom-min.jpg" alt="Lightroom Seoul 이미지">
-                            </a>
+                            <img src="./assets/images/project-lightroom-min.jpg" alt="Lightroom Seoul 이미지">
                         </div>
+                        <a class="project__item-link project__item-link--overlay pc-only" href="https://miraeae.github.io/lightroom-seoul/" rel="noopener" target="_blank">
+                            <span class="sr-only">Go to Site</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -241,7 +226,7 @@
             <div class="sub-project__inner pd-none">
                 <div class="sub-project__title-wrap">
                     <h3 aria-hidden="true" class="sub-project__title reveal-text">Work done during employment.</h3>
-                    <h3 aria-label="Work done during employment." class="sr-only">Work done during employment.</h3>
+                    <h3 class="sr-only">Work done during employment.</h3>
                     <p class="sub-project__date">(2022 — 2024)</p>
                 </div>
                 <ul class="sub-project__list">
@@ -391,13 +376,13 @@
         <section id="goal" class="sec goal">
             <div class="goal__inner">
                 <div class="goal__title-box">
+                    <h2 class="sr-only">My Goal</h2>
                     <h2 aria-hidden="true" class="goal__title">
                         <span>My Goal is this</span>
                         <span>My Goal is this</span>
                         <span>My Goal is this</span>
                         <span>My Goal is this</span>
                     </h2>
-                    <h2 aria-label="My Goal" class="sr-only">My Goal</h2>
                 </div>
                 <ul class="goal__list">
                     <li class="goal__item">
@@ -429,7 +414,7 @@
                 <span>Touch</span>
             </h2>
             <div class="footer__img-box">
-                <img src="./assets/images/contact-img.jpg" alt="컨택트 비쥬얼 이미지">
+                <img src="./assets/images/contact-img.jpg" alt="">
             </div>
         </div>
         <div class="contact">
@@ -449,13 +434,13 @@
             </ul>
         </div>
     </footer>
-    <div class="cursor-wrap pc-only">
+    <div class="cursor-wrap pc-only" aria-hidden="true">
         <div class="cursor"></div>
         <div class="cursor-more">
             <span>View Site</span>
         </div>
     </div>
-    <div class="scroll">
+    <div class="scroll" aria-hidden="true">
         <div class="scroll-down scroll__item">
             <span class="scroll-down__text scroll__item-text">Scroll to Explore</span>
             <svg class="scroll-down__icon scroll__item-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 16 22">
@@ -466,13 +451,13 @@
             <span class="scroll-progress__text scroll__item-text">Scroll Progress</span>
             <span class="scroll-progress__percent"></span>
         </div>
-        <div class="top-btn scroll__item">
+        <a href="#top" class="top-btn scroll__item">
             <span class="top-btn__text scroll__item-text">Scroll Back to top</span>
             <svg class="top-btn__icon scroll__item-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 11 16">
                 <path d="M6.403 2v14H4.48V2z" fill="white"></path>
                 <path d="M10.854 5.644 5.427 0 0 5.644l1.36 1.414 4.067-4.23 4.067 4.23z" fill="white" clip-rule="evenodd"></path>
             </svg>
-        </div>
+        </a>
     </div>
     <small class="copyright">©2025</small>
 </body>
