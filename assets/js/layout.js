@@ -15,14 +15,14 @@ gsap.ticker.lagSmoothing(0);
     Header, Footer Load
 --------------------*/
 async function loadHeader() {
-  const res = await fetch("/includes/header.html");
+  const res = await fetch("/portfolio/includes/header.html");
   const html = await res.text();
   document.querySelector("header").innerHTML = html;
 }
 
 async function loadFooter() {
-  const res = await fetch("/includes/footer.html");
-  const html = await res.text();
+  const res = await fetch("/portfolio/includes/footer.html");
+  const html = await res.text()
   document.querySelector("footer").innerHTML = html;
 
   lenis.resize();  // Lenis 스크롤 height 값 반영 못하는 이슈로 새로운 높이 반영
