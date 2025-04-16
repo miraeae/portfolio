@@ -1,0 +1,36 @@
+@mixin pc {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: #{$laptop}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin mobile480 {
+  @media (max-width: #{$mobile480}) {
+    @content;
+  }
+}
+
+@mixin theme($theme-map) {
+  --bg-color: #{map-get($theme-map, bg-color)};
+  --text-color: #{map-get($theme-map, text-color)};
+  --layer-color: #{map-get($theme-map, layer-color)};
+  --line-color: #{map-get($theme-map, line-color)};
+}

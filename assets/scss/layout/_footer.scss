@@ -1,0 +1,148 @@
+.footer{
+    position: relative;
+    margin: 0 var(--grid-margin);
+    padding-top: 5rem;
+    font-size: 1.125rem;
+    //border-top: 1px solid var(--line-color);
+
+    @include laptop {
+        font-size: 1rem;
+    }
+
+    @include mobile {
+        padding-top: 40px;
+    }
+
+    &__heading{
+        display: flex;
+        flex-direction: column;
+        
+        .footer__title{
+            font-size: 9vw;
+            font-weight: 600;
+            line-height: 1.1;
+
+            @include mobile {
+                font-size: 10vw;
+            }
+
+            &-row{
+                display: flex;
+                justify-content: space-between;
+                overflow: hidden;
+
+                span{
+                    display: inline-block;
+                }
+
+                &:first-child {
+                    span:first-child{
+                        font-family: $font-serif;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+
+    &__content{
+        position: relative;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: end;
+        margin-top: 1rem;
+        padding-bottom: 6rem;
+
+        @include tablet {
+            margin-top: 4rem;
+        }
+
+        @include mobile {
+            margin-top: 2.5rem;
+            padding-bottom: 5rem;
+        }
+    }
+
+    &__col:first-child{
+        width: 35%;
+
+        @include tablet{
+            width: 60%;
+        }
+
+        @include tablet{
+            width: 75%;
+        }
+    }
+
+    &__contact{
+        &-item{
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            line-height: 1;
+            padding: 6px 0;
+
+            strong{
+                font-size: 1.125rem;
+                font-weight: 500;
+            }
+
+            a{
+                display: flex;
+                align-items: center;
+                gap: 5px
+            }
+        }
+    }
+
+    &__copyright{
+        display: block;
+        font-size: 1rem;
+        margin-top: 5rem;
+
+        @include tablet {
+            margin-top: 3.75rem;
+        }
+    }
+
+    &__text{
+        opacity: 0.4;
+        font-size: 1rem;
+        margin-top: 3px;
+
+        @include laptop {
+            font-size: 0.9rem;
+        }
+
+        @include mobile {
+            font-size: 0.8571rem;
+        }
+    }
+
+    &__deco{
+        width: 10%;
+
+        img{
+            display: block;
+        }
+
+        @include tablet {
+            width: 15%;
+        }
+    }
+}
+
+.top-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+    
+    svg{
+        animation: scrollDown ease 1.6s infinite reverse;
+    }
+}

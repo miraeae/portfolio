@@ -1,0 +1,217 @@
+html{
+    @include tablet {
+        font-size: 15px;
+    }
+    @include mobile {
+        font-size: 14px;
+    }
+}
+
+
+body{
+    font-family: "Inter", "pretendard", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    letter-spacing: -.02em;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    word-break: keep-all;
+    transition: background-color 0.4s, color 0.4s;
+    //overflow-x: hidden;
+
+    @include pc {
+        cursor: none;
+        
+        a, button{
+            cursor: none;
+        }
+    }
+
+    &[data-theme="light"] {
+        @include theme($light-theme);
+        .light-show {display: block;}
+        .dark-show {display: none;}
+    }
+
+    &[data-theme="dark"] {
+        @include theme($dark-theme);
+        .dark-show {display: block;}
+        .light-show {display: none;}
+    }
+}
+
+:root{
+    --grid-margin: 2.5rem;
+    --grid-spacing: 12.5rem;
+
+    @include tablet {
+        --grid-margin: 20px;
+        --grid-spacing: 6.6667rem;
+    }
+    @include mobile {
+        --grid-margin: 15px;
+        --grid-spacing: 5.7143rem;
+    }
+}
+
+::selection {
+    background: rgba(135, 135, 135, .35);
+    color:#fff;
+}
+
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: polygon(0 0, 0 0, 0 0);
+    white-space: nowrap;
+}
+
+.scroll-lock {
+    height: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    //touch-action: none;
+}
+
+.pc-only{
+    @include tablet {
+        display: none !important;
+    }
+}
+
+.tb-only{
+    display: none !important;
+    @include tablet {
+        display: block !important;
+    }
+    @include mobile {
+        display: none !important;
+    }
+}
+
+.tb-show{
+    display: none !important;
+    @include tablet {
+        display: block !important;
+    }
+}
+
+.mo-only{
+    display: none !important;
+    @include mobile {
+        display: block !important;
+    }
+}
+
+.skip-menu {
+    position: relative;
+	z-index: 1000;
+
+    &__link {
+        position: absolute;
+        top: -3.125rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $color-black;
+        border: 1px solid rgba(255,255,255,0.2);
+        text-align: center;
+        padding: 0.625rem 1.25rem;
+        font-size: 1rem;
+        color: $color-white;
+        border-radius: 4px;
+
+        &:focus {
+            top: 1.25rem;
+        }
+    }
+}
+.cursor-wrap{
+    .cursor{
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: 9999;
+        pointer-events: none;
+        width: 8px;
+        height: 8px;
+        background-color: $color-red;
+        transition: width 0.3s, height 0.3s;
+
+        &.active {
+            width: 80px;
+            height: 80px;
+            background-color: $color-white;
+            mix-blend-mode: difference;
+        }
+
+        span {
+            display: none;
+            white-space: nowrap;
+        }
+
+        &.more{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width:140px;
+            height:140px;
+            background-color: $color-red;
+            backdrop-filter: blur(10px);
+            color: $color-white;
+            overflow: hidden;
+
+            span{
+                display: inline-block;
+                text-transform: uppercase;
+            }
+
+            &.visit{
+                background-color: rgba(0,0,0,0.2);
+
+                span{
+                    display: inline-block;
+                    flex-shrink: 0;
+                    padding: 0 0.5rem;
+                    text-transform: uppercase;
+                    animation: marqueeTextFull 2s infinite linear;
+                }
+            }
+
+            // Visit 에서 + 로 이동할때
+            &.plus {
+                transition: width 0.3s, height 0.3s, background-color 0.3s;
+            }
+        }
+
+        &-follow{
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+            width: 50px;
+            height: 50px;
+            background-color: initial;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.15s ease-out;
+
+            &.remove{
+                display: none;
+            }
+        }
+    }
+}
+
+.sticky{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+}

@@ -1,0 +1,209 @@
+/* Header */
+.header {
+    position: relative;
+
+    &__inner{
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr minmax(0, auto);
+        padding: 2rem var(--grid-margin) 0;
+        gap: 5vw;
+        color: $color-white;
+        mix-blend-mode: difference;
+
+        @include tablet {
+            grid-template-columns: 1fr minmax(0, auto) 1fr;
+        } 
+    }
+
+    &__main{
+        position: relative;
+        display: flex;
+        align-items: center;
+        border-top: 1px solid rgba(255,255,255,0.2);
+
+        @include tablet {
+            border-top: none;
+        }
+    }
+
+    &__logo {
+        font-size: 1.125rem;
+        line-height: 1;
+        font-weight: 500;
+        letter-spacing: normal;
+        width: 25%;
+        
+        @include mobile {
+            font-size:1rem;
+        }
+    }
+
+    .gnb{
+        width: 75%;
+        &__list{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        &__item{
+            line-height: 1;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.theme-toggle {
+    display: flex;
+    justify-self: flex-end;
+    justify-content: center;
+    align-items: center;
+    //border: 1px solid var(--text-color);
+    border: 1px solid $color-white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    @include tablet {
+        width: 45px;
+        height: 45px;
+    }
+
+    @include mobile {
+        width: 40px;
+        height: 40px;
+    }
+
+    &:hover {
+        transform: rotate(20deg) scale(1.1);
+    }
+
+    &__icon {
+        transition: opacity 0.3s ease;
+        width: 28px;
+
+        @include tablet{
+            width: 25px;
+        }
+
+        @include mobile{
+            width: 20px;
+        }
+
+        path {
+            stroke: $color-white;
+        }
+    }
+}
+
+.gnb-toggle {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    color: $color-white;
+    cursor: pointer;
+
+    @include pc{
+        display: none;
+    }
+
+    &__label{
+        display: inline-block;
+        font-size: 14px;
+        line-height: 1;
+        padding-right: 6px;
+
+        @include mobile {
+            font-size: 12px;
+        }
+    }
+
+    &__icon{
+        position: relative;
+        width: 15px;
+        height: 15px;
+    }
+
+    &__bar {
+        position: absolute;
+        top: 3px;
+        left: 0;
+        background: $color-white;
+        width: 100%;
+        height: 2px;
+        transition: all 0.35s ease;
+        &:nth-child(2) {
+            top: 8px;
+        }
+    }
+
+    &.active{        
+        .gnb-toggle__bar{
+            &:nth-child(1) {
+                transform: translateY(2.5px) translateX(0) rotate(45deg);
+            }
+            &:nth-child(2) {
+                transform: translateY(-2.5px) translateX(0) rotate(-45deg);
+            }
+        }
+    }
+}
+
+.gnb-mobile{
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height:0;
+    overflow: hidden;
+    z-index: -1;
+
+    &__inner{
+        color: $color-white;
+        width: 100%;
+        background-color: rgba(0,0,0,0.1);
+        backdrop-filter: blur(20px);
+        padding: 6rem var(--grid-margin) 4rem;
+        text-align: center;
+        border-bottom: 1px solid var(--line-color);
+
+        @include mobile {
+            padding-top: 5rem;
+        }
+    }
+
+    &__item{
+        font-size:2.2rem;
+        font-weight: 500;
+        padding: 10px 0;
+        overflow: hidden;
+
+        @include mobile {
+            font-size: 1.8rem;
+        }
+
+        a{
+            display: inline-block;
+        }
+    }
+
+    &__contact-list{
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        font-size: 1.13rem;
+        margin-top: 2.5rem;
+
+        @include mobile {
+            font-size: 1rem;
+        }
+    }
+}
