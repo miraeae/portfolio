@@ -108,7 +108,7 @@ function cursorEvent() {
   animateFollow();
 
   const link = document.querySelectorAll(
-    "a, button, [class*=btn], [class*=trigger], [class*=toggle]"
+    "a:not([class$='project__item-link']), button:not([class$='project__item-modal-open']), [class*=btn], [class*=trigger], [class*=toggle]"
   );
 
   link.forEach((el) => {
@@ -120,6 +120,65 @@ function cursorEvent() {
     el.addEventListener("mouseleave", () => {
       cursor.classList.remove("active");
       follow.classList.remove("remove");
+    });
+  });
+
+  // 프로젝트 커서
+  const projectLinkAll = document.querySelectorAll("[class$='project__item-link'], [class$='project__item-modal-open']");
+  const projectVisit = document.querySelectorAll("[class$='project__item-link']");
+  const projectMore = document.querySelectorAll("[class$='project__item-modal-open']");
+
+  projectLinkAll.forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      cursor.classList.add("more");
+      follow.classList.add("remove");
+    });
+
+    el.addEventListener("mouseleave", () => {
+      cursor.classList.remove("more");
+      follow.classList.remove("remove");
+    });
+  });
+
+  // Visit Site 텍스트 추가
+  projectVisit.forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      if (!cursor.classList.contains("visit-added")) {
+        for (let i = 0; i < 4; i++) {
+          const span = document.createElement("span");
+          span.textContent = "Visit Site";
+          cursor.appendChild(span);
+        }
+        cursor.classList.add("visit"); // 중복 추가 방지용 클래스
+      }
+    });
+
+    el.addEventListener("mouseleave", () => {
+      // 추가된 span 요소들 제거
+      const spans = cursor.querySelectorAll("span");
+      spans.forEach(span => span.remove());
+
+      cursor.classList.remove("visit");
+    });
+  });
+
+  // More Details 텍스트 추가
+  projectMore.forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      if (!cursor.classList.contains("more-added")) {
+        const span = document.createElement("span");
+        span.textContent = 'More Details';
+        cursor.appendChild(span);
+
+        cursor.classList.add("plus");
+      }
+    });
+
+    el.addEventListener("mouseleave", () => {
+      const span = cursor.querySelector("span");
+      span.remove();
+
+      cursor.classList.remove("plus");
     });
   });
 }
@@ -219,4 +278,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   //loadHeader()와 loadFooter()가 끝난 후에 실행하기
   themeChange();
   cursorEvent();
+  layoutEvent();
 });
