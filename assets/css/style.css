@@ -24,6 +24,12 @@ input, button, textarea, select {
   border: none;
   outline: none;
 }
+input:focus-visible, button:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid #F84D35;
+}
+input:focus(:focus-visible), button:focus(:focus-visible), textarea:focus(:focus-visible), select:focus(:focus-visible) {
+  outline: none;
+}
 
 img, picture, video, canvas, svg {
   max-width: 100%;
@@ -37,6 +43,9 @@ ul, ol {
 a {
   text-decoration: none;
   color: inherit;
+}
+a:focus-visible {
+  outline: 2px solid #F84D35;
 }
 
 table {
@@ -1015,6 +1024,9 @@ body[data-theme=dark] {
   display: block;
   width: 100%;
   height: 100%;
+}
+[class$=project] [class$=project__item-link]:focus {
+  border: 2px solid #F84D35;
 }
 
 .project {

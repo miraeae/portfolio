@@ -19,6 +19,16 @@ input, button, textarea, select {
     background: none;
     border: none;
     outline: none;
+
+    // 키보드 포커스 시에만 outline 표시
+    &:focus-visible{
+        outline: 2px solid $color-red;
+    }
+
+    // 마우스/터치 등 비키보드 포커스에선 outline 제거
+    &:focus(:focus-visible){
+        outline:none;
+    }
 }
 
 img, picture, video, canvas, svg {
@@ -34,6 +44,10 @@ ul, ol {
 a {
     text-decoration: none;
     color: inherit;
+
+    &:focus-visible{
+        outline: 2px solid $color-red;
+    }
 }
 
 table {
