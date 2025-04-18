@@ -12,9 +12,7 @@ body{
     font-family: "Inter", "pretendard", sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    letter-spacing: -.02em;
     line-height: 1.6;
-    letter-spacing: 0.05em;
     word-break: keep-all;
     transition: background-color 0.4s, color 0.4s;
     //overflow-x: hidden;
@@ -29,14 +27,10 @@ body{
 
     &[data-theme="light"] {
         @include theme($light-theme);
-        .light-show {display: block;}
-        .dark-show {display: none;}
     }
 
     &[data-theme="dark"] {
         @include theme($dark-theme);
-        .dark-show {display: block;}
-        .light-show {display: none;}
     }
 }
 
@@ -142,25 +136,24 @@ body{
         background-color: $color-red;
         transition: width 0.3s, height 0.3s;
 
+        span {
+            display: none;
+            white-space: nowrap;
+        }
+
         &.active {
             width: 80px;
             height: 80px;
             background-color: $color-white;
             mix-blend-mode: difference;
         }
-
-        span {
-            display: none;
-            white-space: nowrap;
-        }
-
-        &.more{
+        
+        &.active-focus{
             display: flex;
             align-items: center;
             justify-content: center;
             width:140px;
             height:140px;
-            background-color: $color-red;
             backdrop-filter: blur(10px);
             color: $color-white;
             overflow: hidden;
@@ -182,8 +175,9 @@ body{
                 }
             }
 
-            // Visit 에서 + 로 이동할때
-            &.plus {
+            &.more {
+                background-color: $color-red;
+                mix-blend-mode: exclusion;
                 transition: width 0.3s, height 0.3s, background-color 0.3s;
             }
         }
@@ -199,10 +193,11 @@ body{
             width: 50px;
             height: 50px;
             background-color: initial;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid $color-white;
+            mix-blend-mode: difference;
             transition: transform 0.15s ease-out;
 
-            &.remove{
+            &.active{
                 display: none;
             }
         }

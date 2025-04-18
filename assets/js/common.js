@@ -1,6 +1,6 @@
-/*--------------------
+/*------------------------------------
     Lenis
---------------------*/
+------------------------------------*/
 const lenis = new Lenis()
 
 lenis.on('scroll', ScrollTrigger.update)
@@ -11,9 +11,10 @@ gsap.ticker.add((time)=>{
 
 gsap.ticker.lagSmoothing(0);
 
-/*--------------------
+
+/*------------------------------------
     Header, Footer Load
---------------------*/
+------------------------------------*/
 async function loadHeader() {
   const res = await fetch("/portfolio/includes/header.html");
   const html = await res.text();
@@ -29,9 +30,9 @@ async function loadFooter() {
   ScrollTrigger.refresh();  // ScrollTrigger 높이 및 레이아웃 새로 고침
 }
 
-/*--------------------
+/*------------------------------------
     Theme change
---------------------*/
+------------------------------------*/
 function themeChange() {
   const toggleBtn = document.querySelector(".theme-toggle");
   const body = document.body;
@@ -54,6 +55,7 @@ function themeChange() {
     <path d="M26.25 15.9875C26.0534 18.1153 25.2548 20.143 23.9478 21.8335C22.6408 23.524 20.8794 24.8072 18.8696 25.5332C16.8599 26.2591 14.685 26.3977 12.5994 25.9326C10.5138 25.4676 8.60374 24.4182 7.09278 22.9072C5.58182 21.3963 4.53242 19.4862 4.06738 17.4006C3.60234 15.315 3.74089 13.1401 4.46682 11.1304C5.19275 9.12064 6.47604 7.35921 8.16651 6.05219C9.85699 4.74517 11.8847 3.94663 14.0125 3.75C12.7668 5.43533 12.1673 7.51181 12.3232 9.60177C12.479 11.6917 13.3798 13.6563 14.8618 15.1382C16.3437 16.6202 18.3083 17.521 20.3982 17.6768C22.4882 17.8327 24.5647 17.2332 26.25 15.9875Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`;
 
+  // 테마별 아이콘 세팅
   const updateIcon = (theme) => {
     toggleBtn.innerHTML = theme === "dark" ? moonIcon : sunIcon;
     toggleBtn.setAttribute(
@@ -62,22 +64,50 @@ function themeChange() {
     );
   };
 
-  const savedTheme = localStorage.getItem("theme") || "dark"; // 테마 저장
+  // 테마별 보여주는 요소 제어
+  function updateVisibility(theme) {
+    const lightShow = document.querySelectorAll(".light-show");
+    const darkShow = document.querySelectorAll(".dark-show");
+
+    lightShow.forEach((el) => {
+      if(theme === "light") {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    })
+
+    darkShow.forEach((el) => {
+      if(theme === "dark") {
+        el.style.display = "block";
+      } else {
+        el.style.display = "none";
+      }
+    })
+  
+  }
+
+  // 테마 저장
+  //const savedTheme = localStorage.getItem("theme") || "dark";
+  const savedTheme = "dark";
   body.setAttribute("data-theme", savedTheme);
   updateIcon(savedTheme);
+  updateVisibility(savedTheme);
 
+  // 클릭 시 테마 전환
   toggleBtn.addEventListener("click", () => {
     const currentTheme = body.getAttribute("data-theme");
     const newTheme = currentTheme === "dark" ? "light" : "dark";
     body.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
     updateIcon(newTheme);
+    updateVisibility(newTheme);
   });
 }
 
-/*--------------------
+/*------------------------------------
     Cursor Event
---------------------*/
+------------------------------------*/
 function cursorEvent() {
   const cursor = document.querySelector(".cursor");
   const follow = document.querySelector(".cursor-follow");
@@ -114,12 +144,12 @@ function cursorEvent() {
   link.forEach((el) => {
     el.addEventListener("mouseenter", () => {
       cursor.classList.add("active");
-      follow.classList.add("remove");
+      follow.classList.add("active");
     });
 
     el.addEventListener("mouseleave", () => {
       cursor.classList.remove("active");
-      follow.classList.remove("remove");
+      follow.classList.remove("active");
     });
   });
 
@@ -130,27 +160,28 @@ function cursorEvent() {
 
   projectLinkAll.forEach((el) => {
     el.addEventListener("mouseenter", () => {
-      cursor.classList.add("more");
-      follow.classList.add("remove");
+      cursor.classList.add("active-focus");
+      follow.classList.add("active");
     });
 
     el.addEventListener("mouseleave", () => {
-      cursor.classList.remove("more");
-      follow.classList.remove("remove");
+      cursor.classList.remove("active-focus");
+      follow.classList.remove("active");
     });
   });
 
-  // Visit Site 텍스트 추가
+  // Visit Site
   projectVisit.forEach((el) => {
     el.addEventListener("mouseenter", () => {
-      if (!cursor.classList.contains("visit-added")) {
+      if (!cursor.classList.contains("visit")) {
         for (let i = 0; i < 4; i++) {
           const span = document.createElement("span");
           span.textContent = "Visit Site";
           cursor.appendChild(span);
         }
-        cursor.classList.add("visit"); // 중복 추가 방지용 클래스
       }
+
+      cursor.classList.add("visit");
     });
 
     el.addEventListener("mouseleave", () => {
@@ -162,30 +193,31 @@ function cursorEvent() {
     });
   });
 
-  // More Details 텍스트 추가
+  // More Details
   projectMore.forEach((el) => {
     el.addEventListener("mouseenter", () => {
-      if (!cursor.classList.contains("more-added")) {
+      if (!cursor.classList.contains("more")) {
         const span = document.createElement("span");
         span.textContent = 'More Details';
         cursor.appendChild(span);
-
-        cursor.classList.add("plus");
       }
+
+      cursor.classList.add("more");
     });
 
     el.addEventListener("mouseleave", () => {
       const span = cursor.querySelector("span");
       span.remove();
 
-      cursor.classList.remove("plus");
+      cursor.classList.remove("more");
     });
   });
 }
 
-/*--------------------
-    layoutEvent
---------------------*/
+
+/*------------------------------------
+    layout Event
+------------------------------------*/
 function layoutEvent() {
   // Header
   gsap.to(".header__inner", {y:0, duration: 1});
@@ -195,13 +227,14 @@ function layoutEvent() {
   const gnbTl = gsap.timeline({paused: true});
 
   gnbTl
+  .fromTo(".header__inner", {"mix-blend-mode": "difference"}, {"mix-blend-mode": "unset"})
   .to(".gnb-mobile", {display: "block", height:"auto"})
   .from(".gnb-mobile__list li a", {yPercent:120, duration:0.5, stagger: 0.2})
   .from(".gnb-mobile__contact-list li", {opacity:0, duration:0.5})
 
   gnbToggle.addEventListener("click", () => {
     const isActive = gnbToggle.classList.toggle("active"); //true나 false 값 반환
-
+    
     gnbToggle.setAttribute("aria-label", isActive ? "메뉴 닫기" : "메뉴 열기");
     gnbToggle.setAttribute("aria-expanded", isActive.toString());
 
@@ -212,32 +245,19 @@ function layoutEvent() {
     }
   })
 
-  // // Footer
-  // const footerTitle = document.querySelector(".footer__title");
+  // Footer
+  const footerTitle = document.querySelector(".footer__title");
 
-  // const mm = gsap.matchMedia();
-
-  // mm.add("(min-width: 1025px)", () => {
-  //   createFooterAnim("top center");
-  // })
-
-  // mm.add("(max-width: 1024px)", () => {
-  //   createFooterAnim("top 80%");
-  // })
-
-  // function createFooterAnim(setStart) {
-  //   gsap.from(footerTitle.querySelectorAll("span"), {
-  //     scrollTrigger: {
-  //       trigger: footerTitle,
-  //       start: setStart,
-  //       toggleActions: "play none none reverse",
-  //     }, yPercent: 100, stagger: 0.1})
-  // }
+  gsap.from(footerTitle.querySelectorAll("span"), {
+    scrollTrigger: {
+      trigger: footerTitle,
+      start: "top 80%",
+      toggleActions: "play none none reverse",
+    }, opacity: 0, yPercent: 100, duration: 0.5, stagger: 0.2
+  })
 
   
-  /*--------------------
-    Rotate
-  --------------------*/
+  // Rotate
   const rotateEl = document.querySelectorAll(".rotate");
   let rotationSpeed = 1; // 기본 회전 속도
   let boost = 0;
@@ -255,10 +275,8 @@ function layoutEvent() {
     boost += 0.5;
   });
 
-
-  /*--------------------
-    Click Event
-  --------------------*/
+  
+  // Click Event
   $(".gnb__item > a, .gnb-mobile__item > a").click(function () {
     $("html, body").animate({ scrollTop: $(this.hash).offset().top }, 800);
     return false;

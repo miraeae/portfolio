@@ -18,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4"></script>
-    <script src="./assets/js/layout.js"></script>
+    <script src="./assets/js/common.js"></script>
     <script src="./assets/js/main.js" defer></script>
 </head>
 <body data-theme="dark">
@@ -35,13 +35,15 @@
                         <span>FUTURE</span>
                         <span>FOLIO</span>
                     </h1>
-                    <div class="hero__text-box">
+                    <div class="hero__intro">
                         <p class="hero__text sec__text">
                             집을 짓듯, 뼈대부터 탄탄하게 설계하여 사용자가 머무르고 싶은 ‘디지털 공간’을 만들고 싶은 조미래입니다.
                             웹 에이전시에서 3년간 퍼블리셔로 근무하며 다양한 프로젝트를 경험했고,
                             현재는 개인 프로젝트와 프론트엔드 관련 강의 수강을 통해 개발 역량을 더욱 확장하고 있습니다.
                         </p>
-                        <img class="dark-show" src="./assets/images/hero-img.jpg" alt="">
+                        <div class="hero__img-wrap">
+                            <img class="dark-show" src="./assets/images/hero-img.jpg" alt="">
+                        </div>
                     </div>
                 </div>
                 <div class="hero__row hero__row--btm">
@@ -50,7 +52,7 @@
                     </svg>
                     <p class="hero__text sec__text">
                         탄탄한 마크업은 모든 UI의 시작이자 기본이 됩니다. 저는 구조적이고 의미 있는 HTML과 
-                        CSS를 바탕으로 견고한 UI를 설계하고,사용자와 상호작용하는 인터랙션 요소를 
+                        CSS를 바탕으로 견고한 UI를 설계하고, 사용자와 상호작용하는 인터랙션 요소를 
                         JavaScript와 다양한 라이브러리를 활용해 구현합니다.
                     </p>
                 </div>
@@ -61,8 +63,8 @@
             </div>
         </section>
         <section id="project" class="sec project">
-            <h2 class="project__title" aria-label="Personal Projects">
-                <span>Personal</span>
+            <h2 class="project__title" aria-label="Recent Projects">
+                <span>Recent</span>
                 <span>Projects</span>
             </h2>
                 <ul class="project__list">
@@ -112,7 +114,7 @@
                             </div>
                             <div class="project__item-img-box project__item-img-box--lg">
                                 <a class="project__item-link" href="https://miraeae.github.io/sofwave" rel="noopener" target="_blank" aria-label="Sofwave 클론코딩 사이트 방문하기">
-                                    <img src="./assets/images/project-sofwave.jpg" alt="">
+                                    <img class="project__item-img" src="./assets/images/project-sofwave.jpg" alt="">
                                 </a>
                             </div>
                         </div>
@@ -129,7 +131,7 @@
                             </div>
                             <div class="project__item-img-box">
                                 <a class="project__item-link" href="https://miraeae.github.io/lightroom-seoul" rel="noopener" target="_blank" aria-label="Lightroom Seoul 클론코딩 사이트 방문하기">
-                                    <img src="./assets/images/project-lightroom-min.jpg" alt="">
+                                    <img class="project__item-img" src="./assets/images/project-lightroom-min.jpg" alt="">
                                 </a>
                             </div>
                         </div>
@@ -296,7 +298,7 @@
                     <p class="project-modal__meta">퍼블리싱 100% / 2025.03.14 ~ 2025.03.16 / 반응형</p>
                     <p class="project-modal__stack">HTML, SCSS, JavaScript, GSAP(ScrollTrigger), Lenis, Split Type</p>
                     <p class="project-modal__desc">JavaScript, GSAP를 활용하여 다양한 인터랙션과 모션 구현을 중점으로 한 반응형 클론 코딩 사이트입니다.
-                        시멘틱 마크업과 BEM 방식 적용, WAI-ARIA 등 웹 표준과 접근성을 고려하였으며, 가로 세로 스크롤, 마우스 효과, 마스크 슬라이드 등 다양한 기능들을 구현하였습니다.
+                        시멘틱 마크업과 BEM 방식, WAI-ARIA 등을 적용하여 웹 표준과 접근성을 고려하였으며, 가로 세로 스크롤, 마우스 효과, 마스크 슬라이드 등 다양한 기능들을 구현하였습니다.
                     </p>
                     <div class="project-modal__links">
                         <a href="https://miraeae.github.io/urban-art/" class="project-modal__link" target="_blank" rel="noopener">Visit Site</a>
@@ -333,7 +335,7 @@
                     <p class="project-modal__meta">퍼블리싱 100% / 2025.02.18 ~ 2025.02.21+ / 반응형</p>
                     <p class="project-modal__stack">HTML, SCSS, JavaScript, jQuery, GSAP(ScrollTrigger, TextPlugin), Lenis</p>
                     <p class="project-modal__desc">GSAP 라이브러리를 활용하여 인터렉션을 중점적으로 구현하였으며, SCSS를 사용하여 클론 코딩한 반응형 사이트입니다.
-                        하루에 한번만 인트로 활성화, GSAP 반응형, sticky를 이용한 pin효과, 반복문 등을 구현하였습니다.
+                        하루에 한번만 인트로 활성화, GSAP 반응형, sticky를 이용한 pin효과, 반복문 등을 사용하였습니다.
                     </p>
                     <div class="project-modal__links">
                         <a href="https://miraeae.github.io/sofwave/" class="project-modal__link" target="_blank" rel="noopener">Visit Site</a>

@@ -3,7 +3,7 @@
     margin: 0 var(--grid-margin);
     padding-top: 5rem;
     font-size: 1.125rem;
-    //border-top: 1px solid var(--line-color);
+    border-top: 1px solid var(--line-color);
 
     @include laptop {
         font-size: 1rem;
@@ -124,7 +124,7 @@
     &__deco{
         width: 10%;
 
-        img{
+        img, svg{
             display: block;
         }
 
