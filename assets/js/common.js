@@ -88,8 +88,7 @@ function themeChange() {
   }
 
   // 테마 저장
-  //const savedTheme = localStorage.getItem("theme") || "dark";
-  const savedTheme = "dark";
+  const savedTheme = localStorage.getItem("theme") || "dark";
   body.setAttribute("data-theme", savedTheme);
   updateIcon(savedTheme);
   updateVisibility(savedTheme);
