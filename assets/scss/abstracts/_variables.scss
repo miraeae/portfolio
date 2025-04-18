@@ -21,13 +21,9 @@ $font-serif: "NyghtSerif", serif;
 $light-theme: (
   bg-color: #e2e1df,
   text-color: $color-black,
-  layer-color: $color-light-gray,
-  line-color: rgba(0, 0, 0, .2)
 );
 
 $dark-theme: (
   bg-color: $color-black,
   text-color: $color-white,
-  layer-color: $color-dark-gray,
-  line-color: rgba(255, 255, 255, .2)
 );
