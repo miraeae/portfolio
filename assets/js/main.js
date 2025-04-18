@@ -147,6 +147,7 @@ modalOpenBtns.forEach((openBtn) => {
   const modal = document.getElementById(modalId);
   const modalContent = modal.querySelector(".project-modal__content");
   const modalCloseBtn = modal.querySelector(".project-modal-close");
+  const modalLinks = modal.querySelectorAll("a, button");
 
   // 모달 모션
   const mm = gsap.matchMedia();
@@ -167,6 +168,7 @@ modalOpenBtns.forEach((openBtn) => {
     .to(modal, {"display": "flex", height: setHeight, duration: 0.5, ease: "none",
       onComplete: () => { 
         checkOverflow();
+        modalLinks[0].focus(); // 첫 포커스인 X버튼으로 이동
     }}, '<')
     .fromTo(modalCloseBtn, { opacity: 0 }, { opacity: 1, duration: 0.5 });
 
@@ -176,6 +178,7 @@ modalOpenBtns.forEach((openBtn) => {
       document.body.classList.add("scroll-lock");
       openBtn.setAttribute("aria-expanded", "true");
       modalTl.play();
+      document.addEventListener("keydown", trapFocus); //클릭을 키보드로 대체한 경우에도 여전히 click 이벤트가 트리거
     })
 
     // 모달 닫기
@@ -184,15 +187,37 @@ modalOpenBtns.forEach((openBtn) => {
       document.body.classList.remove("scroll-lock");
       openBtn.setAttribute("aria-expanded", "false");
       modalTl.reverse();
+      document.removeEventListener("keydown", trapFocus);
+      openBtn.focus();
     })
+  }
 
-    // 모달 height 값 체크
-    function checkOverflow() {
-      if (modalContent.scrollHeight > modalContent.clientHeight) {
-        modalContent.style.overflowY = "scroll";
+  // 트랩 포커스
+  function trapFocus(event) {
+    const firstElement = modalLinks[0];
+    const lastElement = modalLinks[modalLinks.length - 1];
+
+    if (event.key === "Tab") {
+      if (event.shiftKey) {
+        if (document.activeElement === firstElement) {
+          event.preventDefault();
+          lastElement.focus();
+        }
       } else {
-        modalContent.style.overflowY = "hidden";
+        if (document.activeElement === lastElement) {
+          event.preventDefault();
+          firstElement.focus();
+        }
       }
+    }
+  }
+
+  // 모달 height 값 체크
+  function checkOverflow() {
+    if (modalContent.scrollHeight > modalContent.clientHeight) {
+      modalContent.style.overflowY = "scroll";
+    } else {
+      modalContent.style.overflowY = "hidden";
     }
   }
 });
