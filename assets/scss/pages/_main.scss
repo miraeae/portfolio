@@ -30,11 +30,6 @@
 
 .hero {
     position: relative;
-    height: calc(100vh + 80px);
-
-    @include tablet {
-        height: auto;
-    }
 
     &__content{
         display: flex;
@@ -42,9 +37,14 @@
         justify-content: space-between;
         height: 100%;
         padding: 100px var(--grid-margin) 0;
+        min-height: calc(100vh + 80px);
 
         @include tablet {
-            gap: 150px;
+            min-height: calc(100vh + 75px);
+        }
+    
+        @include mobile {
+            min-height: calc(100vh + 115px);
         }
     }
 
@@ -52,6 +52,11 @@
         display: flex;
         justify-content: space-between;
         font-size: 13.4vw;
+
+        @include tablet {
+            font-size: 20vw;
+            flex-direction: column;
+        }
     }
 
     &__row{
@@ -63,7 +68,7 @@
 
             .hero__intro{
                 align-self: flex-end;
-                width: 60%;
+                width: 80%;
                 max-width: 730px;
 
                 .hero__img-wrap{
@@ -76,18 +81,19 @@
 
         &--btm{
             max-width: 550px;
-            width: 60%;
+            width: 90%;
 
             svg{
                 width: 120px;
-                margin-bottom: 30px;
+                margin-bottom: 1.875rem;
 
                 @include tablet {
                     width: 100px;
                 }
 
                 @include mobile {
-                    width: 80px;
+                    width: 75px;
+                    
                 }
             }
         }
@@ -107,6 +113,12 @@
 
 /* Project 공통 */
 [class$="project"]{
+    [class$="project__item-desc"]{
+        line-height: 1.3;
+        opacity: 0.7;
+        font-size: 0.9375rem;
+    }
+
     [class$="project__item-modal-open"]{
         svg{
             display: block;
@@ -120,6 +132,12 @@
             }
         }
     }
+
+    [class$="project__item-link"]{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .project{
@@ -128,6 +146,10 @@
     &__title{
         font-size: 7.5vw;
         padding: 0 var(--grid-margin);
+
+        @include tablet {
+            font-size: 13vw;
+        }
     }
 
     &__list{
@@ -182,9 +204,10 @@
     
             .project__item-desc{
                 text-align: right;
+                width: 45%;
                 line-height: 1.3;
                 opacity: 0.7;
-                width: 45%;
+                font-size: 0.9375rem;
     
                 span{
                     display: block;
@@ -193,11 +216,15 @@
         }
 
         &-img-box{
-            height: 510px;
+            height: calc(510 / 1920 * 100vw);
             overflow: hidden;
 
             &--lg{
-                height: 660px;
+                height: calc(660 / 1920 * 100vw);
+            }
+
+            @include mobile {
+                height: 300px;
             }
 
             img{
@@ -208,18 +235,24 @@
                 filter: blur(0);
             }
         }
-
-        &__link{
-            display: block;
-        }
     }
 }
 
 .sub-project{
-    //padding-top: var(--grid-spacing);
+    @include tablet {
+        margin-top: -100px;
+    }
 
+    @include mobile {
+        margin-top: -120px;
+    }
+    
     &__marquee{
         font-size: 6vw;
+        
+        @include tablet {
+            font-size: 10vw;
+        }
 
         &-track {
             animation-duration: 15s;
@@ -298,11 +331,9 @@
 
             .sub-project__item-desc{
                 margin-top: 10px;
-                opacity: 0.6;
 
                 @include mobile {
                     margin-top: 5px;
-                    font-size: 13px;
                 }
             }
 
@@ -330,20 +361,21 @@
                 will-change: transform;
             }
         }
-
-        &-link {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            inset: 0;
-        }
     }
 
     &__text{
-        margin-top: 40px;
+        margin-top: 2.5rem;
         font-size: 1.125rem;
         display: flex;
         justify-content: flex-end;
+
+        @include laptop {
+            font-size: 1rem;
+        }
+
+        @include mobile {
+            justify-content: center;
+        }
     }
 }
 
@@ -361,7 +393,7 @@
     width: 100%;
     height: 100%;
     z-index: 1000;
-    background:rgba(0,0,0,0.8);
+    background:rgba(0,0,0,0.7);
     backdrop-filter: blur(10px);
     display: none;
 }
@@ -443,7 +475,7 @@
         }
 
         .project-modal__desc{
-            margin-top: 1.8rem;
+            margin-top: 1.5rem;
         }
 
         .project-modal__img-box{
@@ -466,7 +498,7 @@
             gap:5px;
             border:1px solid rgba(0,0,0,0.7);
             padding: 0.625rem 1.25rem;
-            margin-top: 1.5rem;
+            margin-top: 2.2rem;
             margin-right: 4px;
             overflow: hidden;
             z-index: 0;
@@ -514,12 +546,20 @@
 
     &__title{
         font-size: 7vw;
+
+        @include tablet {
+            font-size: 13vw;
+        }
     }
 
     &__text{
         max-width: 800px;
-        width: 90%;
+        width: 80%;
         margin-top: 1.5rem;
+
+        @include mobile {
+            width: 100%;
+        }
     }
 
     &__content{
@@ -527,6 +567,10 @@
         justify-content: flex-end;
         margin-top: 5rem;
         gap: 3.75rem;
+
+        @include mobile {
+            flex-direction: column;
+        }
     }
 
     &__skill{
@@ -541,6 +585,10 @@
         &-list-wrap{
             display: flex;
             gap: 3.75rem;
+
+            @include mobile{
+                gap: 2rem;
+            }
         }
 
         &-list{

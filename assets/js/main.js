@@ -93,6 +93,7 @@ gsap.utils.toArray(".project__item-img-box img").forEach((img) => {
       trigger: img,
       start: "top bottom",
       end: "bottom top",
+      refreshPriority: 0,
       scrub: 1,
     }
   });

@@ -35,16 +35,16 @@ body{
 }
 
 :root{
-    --grid-margin: 2.5rem;
-    --grid-spacing: 12.5rem;
+    --grid-margin: 2.5rem; //40
+    --grid-spacing: 12.5rem; //200
 
     @include tablet {
-        --grid-margin: 20px;
-        --grid-spacing: 6.6667rem;
+        --grid-margin: 1.3333rem; //20
+        --grid-spacing: 6.6667rem; //100
     }
     @include mobile {
-        --grid-margin: 15px;
-        --grid-spacing: 5.7143rem;
+        --grid-margin: 1.0714rem; //15
+        --grid-spacing: 5.7143rem; //80
     }
 }
 
@@ -72,31 +72,31 @@ body{
 
 .pc-only{
     @include tablet {
-        display: none !important;
+        display: none;
     }
 }
 
 .tb-only{
-    display: none !important;
+    display: none;
     @include tablet {
-        display: block !important;
+        display: block;
     }
     @include mobile {
-        display: none !important;
+        display: none;
     }
 }
 
 .tb-show{
-    display: none !important;
+    display: none;
     @include tablet {
-        display: block !important;
+        display: block;
     }
 }
 
 .mo-only{
-    display: none !important;
+    display: none;
     @include mobile {
-        display: block !important;
+        display: block;
     }
 }
 
@@ -123,6 +123,8 @@ body{
     }
 }
 .cursor-wrap{
+    opacity: 0;
+    
     .cursor{
         position: fixed;
         top: 0;
@@ -176,7 +178,6 @@ body{
             }
 
             &.more {
-                background-color: $color-red;
                 mix-blend-mode: exclusion;
                 transition: width 0.3s, height 0.3s, background-color 0.3s;
             }
@@ -201,6 +202,12 @@ body{
                 display: none;
             }
         }
+    }
+}
+
+[data-theme="light"] {
+    .cursor.more{
+        background-color: $color-red-reverse;
     }
 }
 

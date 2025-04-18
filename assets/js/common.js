@@ -118,6 +118,8 @@ function cursorEvent() {
   let followY = 0;
   
   document.addEventListener('mousemove', (e) => {
+    document.querySelector(".cursor-wrap").style.opacity = "1";
+
     mouseX = e.clientX;
     mouseY = e.clientY;
   

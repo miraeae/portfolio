@@ -19,6 +19,7 @@
         
         @include tablet {
             grid-template-columns: 1fr minmax(0, auto) 1fr;
+            padding-top: 1rem;
         } 
     }
 
@@ -58,14 +59,16 @@
             text-transform: uppercase;
         }
     }
+
+    &__action {
+        justify-self: flex-end;
+    }
 }
 
 .theme-toggle {
     display: flex;
-    justify-self: flex-end;
     justify-content: center;
     align-items: center;
-    //border: 1px solid var(--text-color);
     border: 1px solid $color-white;
     border-radius: 50%;
     width: 50px;
@@ -177,7 +180,8 @@
         border-bottom: 1px solid var(--line-color);
 
         @include mobile {
-            padding-top: 5rem;
+            padding-top: 4.5rem;
+            padding-bottom: 3.2rem;
         }
     }
 
@@ -205,6 +209,7 @@
 
         @include mobile {
             font-size: 1rem;
+            margin-top: 2rem;
         }
     }
 }
