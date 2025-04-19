@@ -31,6 +31,5 @@
 @mixin theme($theme-map) {
   --bg-color: #{map-get($theme-map, bg-color)};
   --text-color: #{map-get($theme-map, text-color)};
-  --layer-color: #{map-get($theme-map, layer-color)};
-  --line-color: #{map-get($theme-map, line-color)};
+  --line-color: #{rgba(map-get($theme-map, text-color), 0.2)};
 }
