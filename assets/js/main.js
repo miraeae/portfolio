@@ -131,23 +131,23 @@ document.querySelectorAll(".project-modal").forEach((modal) => {
   modal.prepend(modalCloseBtn);
 });
 
+
+// 모달 열고 닫기
 const modalOpenBtns = document.querySelectorAll("[class$='project__item-modal-open']");
 
 modalOpenBtns.forEach((openBtn) => {
-  // + 버튼 아이콘 삽입
-  openBtn.innerHTML = `
-    <svg width="32" height="100%" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 1V31" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M1 16H31" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  `;
-
   const modalContainer = document.querySelector(".project-modal-container");
   const modalId = openBtn.dataset.modal;
   const modal = document.getElementById(modalId);
   const modalContent = modal.querySelector(".project-modal__content");
   const modalCloseBtn = modal.querySelector(".project-modal-close");
   const modalLinks = modal.querySelectorAll("a, button");
+
+  // 터치 유저 확인
+  let usingTouch = false;
+  window.addEventListener("touchstart", () => {
+    usingTouch = true;
+  });
 
   // 모달 모션
   const mm = gsap.matchMedia();
@@ -168,7 +168,10 @@ modalOpenBtns.forEach((openBtn) => {
     .to(modal, {"display": "flex", height: setHeight, duration: 0.5, ease: "none",
       onComplete: () => { 
         checkOverflow();
-        modalLinks[0].focus(); // 첫 포커스인 X버튼으로 이동
+
+        if(!usingTouch){
+          modalLinks[0].focus(); // 첫 포커스인 X버튼으로 이동
+        }
     }}, '<')
     .fromTo(modalCloseBtn, { opacity: 0 }, { opacity: 1, duration: 0.5 });
 
@@ -188,7 +191,10 @@ modalOpenBtns.forEach((openBtn) => {
       openBtn.setAttribute("aria-expanded", "false");
       modalTl.reverse();
       document.removeEventListener("keydown", trapFocus);
-      openBtn.focus();
+
+      if(!usingTouch){
+        openBtn.focus();
+      }
     })
   }
 
@@ -220,6 +226,14 @@ modalOpenBtns.forEach((openBtn) => {
       modalContent.style.overflowY = "hidden";
     }
   }
+
+  // + 버튼 아이콘 삽입
+  openBtn.innerHTML = `
+    <svg width="32" height="100%" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 1V31" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M1 16H31" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `;
 });
 
 // 모달 내부 링크에 → 추가
