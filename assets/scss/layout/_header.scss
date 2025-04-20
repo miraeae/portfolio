@@ -190,6 +190,7 @@
         font-weight: 500;
         padding: 10px 0;
         overflow: hidden;
+        text-transform: uppercase;
 
         @include mobile {
             font-size: 1.8rem;

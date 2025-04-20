@@ -31,6 +31,10 @@ input, button, textarea, select {
     }
 }
 
+button{
+    cursor: pointer;
+}
+
 img, picture, video, canvas, svg {
     //display: block;
     max-width: 100%;

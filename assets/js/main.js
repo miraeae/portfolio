@@ -2,7 +2,6 @@
     Common
 ------------------------------------*/
 gsap.registerPlugin(ScrollTrigger);
-const mm = gsap.matchMedia();
 
 gsap.utils.toArray(".sec h2[class$='__title']").forEach((title) => {
   const titleEl = title.querySelectorAll("span");
@@ -40,9 +39,9 @@ const heroTl = gsap.timeline();
 heroTl
 .to(".hero__row--top", {opacity: 1})
 .from(".hero__bg", {"filter": "blur(100px)", duration: 0.8})
-.from(".hero__title span", {opacity: 0, yPercent: 100, duration: 0.5, stagger: 0.2}, "<")
-.from(".hero__row--top .hero__text", {opacity: 0, yPercent: 100, duration: 0.8, ease: "power2.out"}, "-=50%")
-.from(".hero__img-wrap img", {clipPath: "inset(0 100% 0 0)", duration: 0.6, ease: "power2.out"}, "-=50%")
+.from(".hero__title span", {opacity: 0, yPercent: 100, skewY: 2, duration: 1, stagger: 0.2, ease:"power4.out"}, "<")
+.from(".hero__row--top .hero__text", {opacity: 0, yPercent: 100, duration: 1, ease: "power2.out"}, "-=50%")
+.from(".hero__img-wrap img", {clipPath: "inset(0 100% 0 0)", duration: 0.8, ease: "power2.out"}, "-=50%")
 
 gsap.from(".hero__row--btm .hero__text", {opacity: 0, yPercent: 100, duration: 0.8, ease: "power2.out",
   scrollTrigger: {
@@ -64,23 +63,22 @@ gsap.to(".hero__content", {
 /*------------------------------------
     Projects
 ------------------------------------*/
-gsap.to(".project__list", {
-  scrollTrigger: {
-    trigger: ".project__title",
-    start: "top 70%",
-    end: "bottom top",
-    scrub: 1,
-  }, y: -210, ease: "none",
-})
+function projectList(setStart, setY) {
+  gsap.to(".project__list", {
+    scrollTrigger: {
+      trigger: ".project__title",
+      start: setStart,
+      end: "bottom top",
+      scrub: 1,
+    }, y: setY, ease: "none",
+  })
+}
 
-// Img Anim
-gsap.utils.toArray(".project__item-img-box img").forEach((img) => {
-  gsap.set(img, { yPercent: -20 });
-
+function projectImg(img, setStart){
   gsap.from(img, {
     scrollTrigger: {
       trigger: img,
-      start: "top 70%",
+      start: setStart,
       end: "bottom center",
       refreshPriority: 0,
       toggleActions: "play none none reverse"
@@ -97,6 +95,36 @@ gsap.utils.toArray(".project__item-img-box img").forEach((img) => {
       scrub: 1,
     }
   });
+}
+
+const mm = gsap.matchMedia();
+
+// pc
+mm.add("(min-width: 1025px)", () => {
+  projectList("top 70%", "-210px");
+
+  gsap.utils.toArray(".project__item-img-box img").forEach((img) => {
+    gsap.set(img, { yPercent: -20 });
+    projectImg(img, "top 70%");
+  })
+})
+
+// tablet + mobile
+mm.add("(max-width: 1024px)", () => {
+  gsap.utils.toArray(".project__item-img-box img").forEach((img) => {
+    gsap.set(img, { yPercent: -20 });
+    projectImg(img, "top 80%");
+  })
+})
+
+// tablet
+mm.add("(min-width: 768px) and (max-width: 1024px)", () => {
+  projectList("top 60%", "-110px");
+})
+
+// mobile
+mm.add("(max-width: 767px)", () => {
+  projectList("top 60%", "-70px");
 })
 
 

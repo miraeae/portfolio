@@ -31,6 +31,10 @@ input:focus(:focus-visible), button:focus(:focus-visible), textarea:focus(:focus
   outline: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 img, picture, video, canvas, svg {
   max-width: 100%;
   height: auto;
@@ -680,6 +684,7 @@ body[data-theme=dark] {
   font-weight: 500;
   padding: 10px 0;
   overflow: hidden;
+  text-transform: uppercase;
 }
 @media (max-width: 767px) {
   .gnb-mobile__item {
@@ -815,6 +820,11 @@ body[data-theme=dark] {
 .footer__contact-item strong {
   font-size: 1.125rem;
   font-weight: 500;
+}
+@media (max-width: 1280px) {
+  .footer__contact-item strong {
+    font-size: 1rem;
+  }
 }
 .footer__contact-item a {
   display: -webkit-box;
@@ -1051,9 +1061,7 @@ body[data-theme=dark] {
   border-bottom: 1px solid var(--line-color);
   margin-top: calc(var(--grid-spacing) / 2);
   counter-reset: number;
-  background-color: rgba(255, 255, 255, 0.05);
-  -webkit-backdrop-filter: blur(30px);
-          backdrop-filter: blur(30px);
+  background-color: #0a0a0a;
 }
 @media (max-width: 767px) {
   .project__list {
@@ -1136,16 +1144,6 @@ body[data-theme=dark] {
           filter: blur(0);
 }
 
-@media (max-width: 1024px) {
-  .sub-project {
-    margin-top: -100px;
-  }
-}
-@media (max-width: 767px) {
-  .sub-project {
-    margin-top: -120px;
-  }
-}
 .sub-project__marquee {
   font-size: 6vw;
 }
@@ -1290,7 +1288,7 @@ body[data-theme=dark] {
 }
 
 [data-theme=light] .project__list {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: #ECECEC;
 }
 [data-theme=light] .sub-project__item-content {
   background-color: rgba(255, 255, 255, 0.6);

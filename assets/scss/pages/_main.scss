@@ -144,7 +144,7 @@
     }
 }
 
-.project{
+.project {
     padding-top: calc(var(--grid-spacing) / 2);
 
     &__title{
@@ -166,8 +166,9 @@
         border-bottom: 1px solid var(--line-color);
         margin-top: calc(var(--grid-spacing) / 2);
         counter-reset: number;
-        background-color: rgba(255,255,255,.05);
-        backdrop-filter: blur(30px);
+        // background-color: rgba(255,255,255,.05);
+        // backdrop-filter: blur(30px);
+        background-color: #0a0a0a; // Dark
 
         @include mobile {
             grid-template-columns: repeat(1, 1fr);
@@ -244,14 +245,6 @@
 }
 
 .sub-project{
-    @include tablet {
-        margin-top: -100px;
-    }
-
-    @include mobile {
-        margin-top: -120px;
-    }
-    
     &__marquee{
         font-size: 6vw;
         
@@ -309,7 +302,7 @@
             padding: 2.5rem 1.5rem 1.5rem;
             gap: 1.5rem;
             border-radius: 5px;
-            background-color: rgba(255,255,255,0.08);
+            background-color: rgba(255,255,255,0.08); // Dark
             border:1px solid var(--line-color);
             transition: background-color 0.4s ease;
 
@@ -386,7 +379,8 @@
 
 [data-theme="light"] {
     .project__list{
-        background-color: rgba(255,255,255,0.4);
+        //background-color: rgba(255,255,255,0.4);
+        background-color: #ECECEC;
     }
 
     .sub-project__item-content{
