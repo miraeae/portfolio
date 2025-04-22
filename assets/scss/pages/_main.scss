@@ -410,7 +410,6 @@
     color: $color-black;
     width: 80%;
     height: 0;
-    display: flex;
     display: none;
     overflow: hidden;
 
@@ -454,7 +453,7 @@
 
         @include tablet{
             grid-template-columns: 1fr;
-            padding: 30px;
+            padding: 40px 30px;
         }
 
         .project-modal__title{
@@ -493,6 +492,10 @@
             }
         }
 
+        .project-modal__links{
+            margin-top: 2.2rem;
+        }
+
         .project-modal__link {
             position: relative;
             display: inline-flex;
@@ -501,11 +504,14 @@
             gap:5px;
             border:1px solid rgba(0,0,0,0.7);
             padding: 0.625rem 1.25rem;
-            margin-top: 2.2rem;
             margin-right: 4px;
             overflow: hidden;
             z-index: 0;
             transition: color 0.4s ease, border 0.4s ease;
+
+            @include mobile {
+                padding: 0.625rem 1rem;
+            }
 
             svg{
                 width: 9px;
