@@ -178,22 +178,18 @@ modalOpenBtns.forEach((openBtn) => {
   });
 
   // 모달 모션
-  const mm = gsap.matchMedia();
+  let modalTl = null; // 전역에서 접근 가능
 
-  mm.add("(min-width: 1025px)", () => {
-    createModal("80%");
-  });
+  function getCurrentHeight() {
+    return window.innerWidth <= 1024 ? "65%" : "80%";
+  }
 
-  mm.add("(max-width: 1024px)", () => {
-    createModal("70%");
-  });
-
-  function createModal(setHeight) {
-    const modalTl = gsap.timeline({ paused: true });
+  function openModal() {
+    modalTl = gsap.timeline({ paused: true });
 
     modalTl
     .to(modalContainer, { "display": "block", duration: 0.8 })
-    .to(modal, {"display": "flex", height: setHeight, duration: 0.5, ease: "none",
+    .to(modal, {"display": "flex", height: getCurrentHeight(), duration: 0.5, ease: "none",
       onComplete: () => { 
         checkOverflow();
 
@@ -203,28 +199,30 @@ modalOpenBtns.forEach((openBtn) => {
     }}, '<')
     .fromTo(modalCloseBtn, { opacity: 0 }, { opacity: 1, duration: 0.5 });
 
-    // 모달 열기
-    openBtn.addEventListener("click", () => {
-      lenis.stop();
-      document.body.classList.add("scroll-lock");
-      openBtn.setAttribute("aria-expanded", "true");
-      modalTl.play();
-      document.addEventListener("keydown", trapFocus); //클릭을 키보드로 대체한 경우에도 여전히 click 이벤트가 트리거
-    })
-
-    // 모달 닫기
-    modalCloseBtn.addEventListener("click", () => {
-      lenis.start();
-      document.body.classList.remove("scroll-lock");
-      openBtn.setAttribute("aria-expanded", "false");
-      modalTl.reverse();
-      document.removeEventListener("keydown", trapFocus);
-
-      if(!usingTouch){
-        openBtn.focus();
-      }
-    })
+    modalTl.play();
   }
+
+  // 모달 열기
+  openBtn.addEventListener("click", () => {
+    lenis.stop();
+    document.body.classList.add("scroll-lock");
+    openBtn.setAttribute("aria-expanded", "true");
+    openModal();
+    document.addEventListener("keydown", trapFocus); //클릭을 키보드로 대체한 경우에도 여전히 click 이벤트가 트리거
+  })
+
+  // 모달 닫기
+  modalCloseBtn.addEventListener("click", () => {
+    lenis.start();
+    document.body.classList.remove("scroll-lock");
+    openBtn.setAttribute("aria-expanded", "false");
+    modalTl.reverse();
+    document.removeEventListener("keydown", trapFocus);
+
+    if(!usingTouch){
+      openBtn.focus();
+    }
+  })
 
   // 트랩 포커스
   function trapFocus(event) {
@@ -254,6 +252,10 @@ modalOpenBtns.forEach((openBtn) => {
       modalContent.style.overflowY = "hidden";
     }
   }
+
+  window.addEventListener("resize", () => {
+    checkOverflow();
+  });
 
   // + 버튼 아이콘 삽입
   openBtn.innerHTML = `
