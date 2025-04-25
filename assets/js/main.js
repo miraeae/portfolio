@@ -287,6 +287,35 @@ document.querySelectorAll(".project-modal__link:first-child").forEach((link) => 
 });
 
 /*------------------------------------
+    Side Projects
+------------------------------------*/
+const sideItems = document.querySelectorAll(".side-project__item");
+const sideCursor = document.querySelector(".side-project__cursor");
+const sideCursorImgs = sideCursor.querySelectorAll(".side-project__cursor-img");
+
+document.addEventListener("mousemove", (e) => {
+  sideCursor.style.top = `${e.clientY}px`
+  sideCursor.style.left = `${e.clientX}px`
+  sideCursor.animate({
+    top: `${e.clientY}px`, left:`${e.clientX}px`
+  }, 2000)
+})
+
+sideItems.forEach((item, idx) => {
+  const sideCursorImg = sideCursorImgs[idx];
+
+  item.addEventListener("mouseenter", () => {
+    sideCursorImg.classList.add("active");
+  })
+
+  item.addEventListener("mouseleave", () => {
+    sideCursorImg.classList.remove("active");
+  })
+})
+
+
+
+/*------------------------------------
     About
 ------------------------------------*/
 slideUp(".about__text");
