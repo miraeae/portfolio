@@ -141,6 +141,19 @@ gsap.utils.toArray(".sub-project__item-img-box img").forEach((img) => {
 });
 
 
+const subOpenBtns = document.querySelectorAll(".sub-project__item-modal-open");
+
+subOpenBtns.forEach((openBtn) => {
+    // + 아이콘 삽입
+    openBtn.innerHTML = `
+    <svg width="32" height="100%" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 1V31" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M1 16H31" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `;
+})
+
+
 
 /*------------------------------------
     Projects - modal
@@ -228,6 +241,8 @@ modalOpenBtns.forEach((openBtn) => {
   }
 
   modalCloseBtn.addEventListener("click", closeModal);
+  modalContainer.addEventListener("click", closeModal);
+
   document.addEventListener("keydown", (event) => {
     if(event.key === "Escape") {
       closeModal();
@@ -257,7 +272,7 @@ modalOpenBtns.forEach((openBtn) => {
   // 모달 height 값 체크
   function checkOverflow() {
     if (modalContent.scrollHeight > modalContent.clientHeight) {
-      modalContent.style.overflowY = "scroll";
+      modalContent.style.overflowY = "auto";
     } else {
       modalContent.style.overflowY = "hidden";
     }
@@ -266,24 +281,6 @@ modalOpenBtns.forEach((openBtn) => {
   window.addEventListener("resize", () => {
     checkOverflow();
   });
-
-  // + 버튼 아이콘 삽입
-  openBtn.innerHTML = `
-    <svg width="32" height="100%" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 1V31" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M1 16H31" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  `;
-});
-
-// 모달 내부 링크에 → 추가
-document.querySelectorAll(".project-modal__link:first-child").forEach((link) => {
-  link.insertAdjacentHTML(
-    "beforeend", // 컨텐츠 뒤에 추가 beforeend // 앞에 추가하고싶으면 afterbegin
-    `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2 22L22 2M22 2H2M22 2V22" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
-    </svg>`
-  );
 });
 
 /*------------------------------------

@@ -178,7 +178,6 @@ body{
             }
 
             &.more {
-                mix-blend-mode: exclusion;
                 transition: width 0.3s, height 0.3s, background-color 0.3s;
             }
         }
@@ -202,12 +201,6 @@ body{
                 display: none;
             }
         }
-    }
-}
-
-[data-theme="light"] {
-    .cursor.more{
-        background-color: $color-red-reverse;
     }
 }
 
