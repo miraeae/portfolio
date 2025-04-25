@@ -16,14 +16,29 @@ gsap.ticker.lagSmoothing(0);
     Header, Footer Load
 ------------------------------------*/
 async function loadHeader() {
-  const res = await fetch("/portfolio/includes/header.html");
+  let path = "";
+  if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+    path = "/includes/header.html";
+  } else {
+    path = "/portfolio/includes/header.html";  // GitHub Pages
+  }
+
+  const res = await fetch(path);
   const html = await res.text();
   document.querySelector("header").innerHTML = html;
 }
 
 async function loadFooter() {
-  const res = await fetch("/portfolio/includes/footer.html");
-  const html = await res.text()
+  let path = "";
+
+  if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+    path = "/includes/footer.html";
+  } else {
+    path = "/portfolio/includes/footer.html";  // GitHub Pages
+  }
+
+  const res = await fetch(path);
+  const html = await res.text();
   document.querySelector("footer").innerHTML = html;
 
   lenis.resize();  // Lenis 스크롤 height 값 반영 못하는 이슈로 새로운 높이 반영
