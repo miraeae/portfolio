@@ -1518,27 +1518,32 @@ body[data-theme=dark] {
       -ms-flex-align: center;
           align-items: center;
   gap: 5px;
+  padding: 0.9rem 1.5rem;
   border: 1px solid rgba(0, 0, 0, 0.7);
-  margin-top: 0.8rem;
-  padding: 0.9rem 1.5rem 0.9rem 1.2rem;
-  overflow: hidden;
   line-height: 1;
   font-size: 1rem;
   white-space: nowrap;
   -webkit-transition: color 0.4s ease, border 0.4s ease;
   transition: color 0.4s ease, border 0.4s ease;
+  overflow: hidden;
+  margin-top: 0.8rem;
 }
-@media (max-width: 767px) {
-  .project-modal__link {
-    width: calc(50% - 10px);
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin-right: 10px;
-  }
-  .project-modal__link:last-child {
-    width: 100%;
-  }
+.project-modal__link:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 1rem;
+  background-color: #F84D35;
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+  z-index: -1;
 }
 .project-modal__link:before {
   content: "";
@@ -1559,23 +1564,6 @@ body[data-theme=dark] {
 .project-modal__link--review:before {
   background-image: url(../images/icon-notion.webp);
 }
-.project-modal__link:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 1rem;
-  height: 1rem;
-  background-color: #F84D35;
-  border-radius: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(0);
-          transform: translate(-50%, -50%) scale(0);
-  -webkit-transition: -webkit-transform 0.4s ease;
-  transition: -webkit-transform 0.4s ease;
-  transition: transform 0.4s ease;
-  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
-  z-index: -1;
-}
 .project-modal__link:hover {
   color: #ffffff;
   border: 1px solid #F84D35;
@@ -1587,6 +1575,18 @@ body[data-theme=dark] {
 .project-modal__link:hover:before {
   -webkit-filter: brightness(0) invert(1);
   filter: brightness(0) invert(1);
+}
+@media (max-width: 767px) {
+  .project-modal__link {
+    width: calc(50% - 10px);
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-right: 10px;
+  }
+  .project-modal__link:last-child {
+    width: 100%;
+  }
 }
 
 /* Side */
