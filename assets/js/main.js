@@ -192,7 +192,7 @@ modalOpenBtns.forEach(btn => {
     } else {
       // 없으면 fetch 후 저장
       try {
-        const response = await fetch(modalUrl);
+        const response = await fetch(`./project-details/${modalUrl}.html`);
         const html = await response.text();
         modalCache.set(modalUrl, html); // 저장
         loadModalContent(html);

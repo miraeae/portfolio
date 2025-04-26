@@ -1420,6 +1420,11 @@ body[data-theme=dark] {
     grid-template-columns: 1fr;
   }
 }
+@media (max-width: 767px) {
+  .project-modal__content {
+    padding: 3rem 2rem;
+  }
+}
 .project-modal__close {
   position: absolute;
   top: calc(10% + 1.5rem);
@@ -1429,6 +1434,13 @@ body[data-theme=dark] {
   padding: 1.375rem;
   border-radius: 50%;
   z-index: 1;
+}
+@media (max-width: 767px) {
+  .project-modal__close {
+    padding: 1rem;
+    top: calc(10% + 1rem);
+    right: calc(10% + 1rem);
+  }
 }
 .project-modal__close svg {
   display: block;
@@ -1482,38 +1494,63 @@ body[data-theme=dark] {
 }
 .project-modal__links {
   margin-top: 1.2rem;
-}
-.project-modal__link {
-  position: relative;
+  font-size: 0;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  max-width: -webkit-max-content;
-  max-width: -moz-max-content;
-  max-width: max-content;
+  gap: 5px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .project-modal__links {
+    gap: 0;
+    max-width: 280px;
+  }
+}
+.project-modal__link {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   gap: 5px;
   border: 1px solid rgba(0, 0, 0, 0.7);
   margin-top: 0.8rem;
-  margin-right: 4px;
   padding: 0.9rem 1.5rem 0.9rem 1.2rem;
   overflow: hidden;
   line-height: 1;
+  font-size: 1rem;
+  white-space: nowrap;
   -webkit-transition: color 0.4s ease, border 0.4s ease;
   transition: color 0.4s ease, border 0.4s ease;
+}
+@media (max-width: 767px) {
+  .project-modal__link {
+    width: calc(50% - 10px);
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-right: 10px;
+  }
+  .project-modal__link:last-child {
+    width: 100%;
+  }
 }
 .project-modal__link:before {
   content: "";
   position: relative;
+  display: inline-block;
   width: 20px;
   height: 20px;
   background-position: left center;
   background-size: cover;
   background-repeat: no-repeat;
 }
-.project-modal__link--demo:before {
+.project-modal__link--link:before {
   background-image: url(../images/icon-link.webp);
 }
 .project-modal__link--github:before {
@@ -1544,8 +1581,8 @@ body[data-theme=dark] {
   border: 1px solid #F84D35;
 }
 .project-modal__link:hover:after {
-  -webkit-transform: translate(-50%, -50%) scale(15);
-          transform: translate(-50%, -50%) scale(15);
+  -webkit-transform: translate(-50%, -50%) scale(20);
+          transform: translate(-50%, -50%) scale(20);
 }
 .project-modal__link:hover:before {
   -webkit-filter: brightness(0) invert(1);

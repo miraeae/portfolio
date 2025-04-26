@@ -504,17 +504,27 @@
     @include tablet {
       grid-template-columns: 1fr;
     }
+
+    @include mobile{
+      padding: 3rem 2rem;
+    }
   }
 
   &__close{
     position: absolute;
-    top: calc(10% + 1.5rem);;
-    right: calc(10% + 1.5rem);;
+    top: calc(10% + 1.5rem);
+    right: calc(10% + 1.5rem);
     stroke: $color-white;
     background-color: $color-black;
     padding: 1.375rem;
     border-radius: 50%;
     z-index: 1;
+
+    @include mobile {
+      padding: 1rem;
+      top: calc(10% + 1rem);
+      right: calc(10% + 1rem);
+    }
 
     svg {
       display: block;
@@ -575,25 +585,46 @@
 
   &__links {
     margin-top: 1.2rem;
+    font-size: 0;
+    display: inline-flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @include mobile {
+      gap: 0;
+      max-width: 280px;
+    }
   }
 
   &__link {
     position: relative;
-    display: inline-flex;
-    max-width: max-content;
+    display: flex;
     align-items: center;
     gap: 5px;
     border: 1px solid rgba(0, 0, 0, 0.7);
     margin-top: .8rem;
-    margin-right: 4px;
     padding: 0.9rem 1.5rem 0.9rem 1.2rem;
     overflow: hidden;
     line-height: 1;
+    font-size: 1rem;
+    white-space: nowrap;
     transition: color 0.4s ease, border 0.4s ease;
+
+    @include mobile {
+      width: calc(50% - 10px);
+      justify-content: center;
+      margin-right: 10px;
+
+      &:last-child{
+        width: 100%;
+      }
+    }
 
     &:before{
       content: '';
       position: relative;
+      display: inline-block;
       width: 20px;
       height: 20px;
       background-position: left center;
@@ -601,7 +632,7 @@
       background-repeat: no-repeat;
     }
 
-    &--demo:before{
+    &--link:before{
       background-image:url(../images/icon-link.webp);
     }
 
@@ -632,7 +663,7 @@
       border: 1px solid $color-red;
 
       &:after {
-        transform: translate(-50%, -50%) scale(15);
+        transform: translate(-50%, -50%) scale(20);
       }
 
       &:before{
