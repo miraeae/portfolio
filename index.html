@@ -80,7 +80,7 @@
                                 </div>
                             </div>
                             <a class="project__item-link" href="https://miraeae.github.io/my-shop" rel="noopener" target="_blank" aria-label="My Shop 사이트 방문하기"></a>
-                            <button class="project__item-modal-open" data-modal="project-detail/project-myshop.html" aria-haspopup="dialog" aria-expanded="false">자세히 보기</button>
+                            <button class="project__item-modal-open" data-modal="project-details/project-myshop.html" aria-haspopup="dialog" aria-expanded="false">자세히 보기</button>
                         </div>
                     </li>
                     <li class="project__item">
@@ -335,8 +335,14 @@
         <div class="cursor-follow"></div>
     </div>
     <!-- project 상세 설명 모달 -->
-    <div id="modal" class="modal">
-        <div class="modal-content"></div>
+    <div class="project-modal">
+        <button class="project-modal__close">
+            <svg width="25" height="25" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L31 31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M31 1L1 31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </button>
+        <div class="project-modal__content"></div>
     </div>
 </body>
 </html>
