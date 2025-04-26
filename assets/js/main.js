@@ -3,6 +3,18 @@
 ------------------------------------*/
 gsap.registerPlugin(ScrollTrigger);
 
+// lenis
+const lenis = new Lenis()
+
+lenis.on('scroll', ScrollTrigger.update)
+
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+})
+
+gsap.ticker.lagSmoothing(0);
+
+// Text
 gsap.utils.toArray(".sec h2[class$='__title']").forEach((title) => {
   const titleEl = title.querySelectorAll("span");
 
@@ -158,130 +170,68 @@ subOpenBtns.forEach((openBtn) => {
 /*------------------------------------
     Projects - modal
 ------------------------------------*/
-// 각 모달 내부에 닫기 버튼 삽입
-document.querySelectorAll(".project-modal").forEach((modal) => {
-  const modalCloseBtn = document.createElement("button");
-  modalCloseBtn.classList.add("project-modal-close");
-  modalCloseBtn.setAttribute("aria-label", "상세 설명 닫기");
-  modalCloseBtn.innerHTML = `
-    <svg width="25" height="25" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1 1L31 31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M31 1L1 31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  `;
-  modal.prepend(modalCloseBtn);
-});
+const openModalBtns = document.querySelectorAll("[data-modal]");
+const modal = document.getElementById("modal");
+const modalContent = modal.querySelector(".modal-content");
 
+const modalCache = new Map();
 
-// 모달 열고 닫기
-const modalOpenBtns = document.querySelectorAll("[class$='project__item-modal-open']");
+openModalBtns.forEach(btn => {
+  btn.addEventListener("click", async () => {
+    const modalUrl = btn.getAttribute("data-modal");
 
-modalOpenBtns.forEach((openBtn) => {
-  const modalContainer = document.querySelector(".project-modal-container");
-  const modalId = openBtn.dataset.modal;
-  const modal = document.getElementById(modalId);
-  const modalContent = modal.querySelector(".project-modal__content");
-  const modalCloseBtn = modal.querySelector(".project-modal-close");
-  const modalLinks = modal.querySelectorAll("a, button");
-
-  // 터치 유저 확인
-  let usingTouch = false;
-  window.addEventListener("touchstart", () => {
-    usingTouch = true;
-  });
-
-  // 모달 모션
-  let modalTl = null; // 전역에서 접근 가능
-
-  function getCurrentHeight() {
-    return window.innerWidth <= 1024 ? "65%" : "80%";
-  }
-
-  // 해상도에 따라 동적으로 값을 반영하기 위해 함수로 처리
-  function openModalTl() {
-    modalTl = gsap.timeline({ paused: true });
-
-    modalTl
-    .to(modalContainer, { "display": "block", duration: 0.8 })
-    .to(modal, {"display": "flex", height: getCurrentHeight(), duration: 0.5, ease: "none",
-      onComplete: () => { 
-        checkOverflow();
-
-        if(!usingTouch){
-          modalLinks[0].focus(); // 첫 포커스 요소로 이동
-        }
-    }}, '<')
-    .fromTo(modalCloseBtn, { opacity: 0 }, { opacity: 1, duration: 0.5 });
-
-    modalTl.play();
-  }
-
-  // 모달 열기
-  function openModal() {
-    lenis.stop();
-    document.body.classList.add("scroll-lock");
-    openBtn.setAttribute("aria-expanded", "true");
-    openModalTl();
-    document.addEventListener("keydown", trapFocus);
-  }
-  
-  openBtn.addEventListener("click", openModal)
-
-  // 모달 닫기
-  function closeModal(){
-    lenis.start();
-    document.body.classList.remove("scroll-lock");
-    openBtn.setAttribute("aria-expanded", "false");
-    modalTl.reverse();
-    document.removeEventListener("keydown", trapFocus);
-
-    if(!usingTouch){
-      openBtn.focus();
-    }
-  }
-
-  modalCloseBtn.addEventListener("click", closeModal);
-  modalContainer.addEventListener("click", closeModal);
-
-  document.addEventListener("keydown", (event) => {
-    if(event.key === "Escape") {
-      closeModal();
-    }
-  });
-
-  // 트랩 포커스
-  function trapFocus(event) {
-    const firstElement = modalLinks[0];
-    const lastElement = modalLinks[modalLinks.length - 1];
-
-    if (event.key === "Tab") {
-      if (event.shiftKey) {
-        if (document.activeElement === firstElement) {
-          event.preventDefault();
-          lastElement.focus();
-        }
-      } else {
-        if (document.activeElement === lastElement) {
-          event.preventDefault();
-          firstElement.focus();
-        }
+    // 캐시에 이미 있으면 바로 사용
+    if (modalCache.has(modalUrl)) {
+      loadModalContent(modalCache.get(modalUrl));
+    } else {
+      // 없으면 fetch 후 저장
+      try {
+        const response = await fetch(modalUrl);
+        const html = await response.text();
+        modalCache.set(modalUrl, html); // 저장
+        loadModalContent(html);
+      } catch (error) {
+        console.error('모달 불러오기 실패:', error);
       }
     }
-  }
-
-  // 모달 height 값 체크
-  function checkOverflow() {
-    if (modalContent.scrollHeight > modalContent.clientHeight) {
-      modalContent.style.overflowY = "auto";
-    } else {
-      modalContent.style.overflowY = "hidden";
-    }
-  }
-
-  window.addEventListener("resize", () => {
-    checkOverflow();
   });
 });
+
+// 모달 컨텐츠 삽입하고 애니메이션
+function loadModalContent(html) {
+  modalContent.innerHTML = html;
+  attachCloseHandler();
+
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  lenis.options.smooth = false;
+
+  gsap.fromTo(modalContent, 
+    { opacity: 0, y: -30 }, 
+    { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }
+  );
+}
+
+// 닫기 버튼 핸들러 연결
+function attachCloseHandler() {
+  const closeBtn = modalContent.querySelector('[data-close-modal]');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      gsap.to(modalContent, {
+        opacity: 0,
+        y: -30,
+        duration: 0.3,
+        ease: 'power2.in',
+        onComplete: () => {
+          modal.style.display = 'none';
+          modalContent.innerHTML = '';
+          document.body.style.overflow = '';
+          lenis.options.smooth = true;
+        }
+      });
+    });
+  }
+}
 
 /*------------------------------------
     Side Projects
