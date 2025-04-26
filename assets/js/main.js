@@ -182,9 +182,16 @@ const modalCloseBtn = document.querySelector(".project-modal__close");
 // 모달 캐시 저장소
 const modalCache = new Map();
 
+let currentOpenBtn = null;
+let modalLinks;
+
+// 열기
 modalOpenBtns.forEach(btn => {
   btn.addEventListener("click", async () => {
     const modalUrl = btn.getAttribute("data-modal");
+    btn.setAttribute("aria-expanded", "true");
+
+    currentOpenBtn = btn; // 모달 열기 전에 버튼 저장 (닫기에 사용)
 
     // 캐시에 이미 있으면 바로 사용
     if (modalCache.has(modalUrl)) {
@@ -212,6 +219,11 @@ function loadModalContent(html) {
   // Lenis 제거
   lenis.destroy();
   lenisRunning = false;
+
+  // HTML 불러오고 실행
+  modalLinks = modal.querySelectorAll("a, button");
+  document.addEventListener("keydown", trapFocus);
+  modalLinks[0].focus();
   
   gsap.fromTo(
     [modalContent, modalCloseBtn],
@@ -238,6 +250,14 @@ function closeModal() {
 
       // 다시 이벤트 연결
       lenis.on('scroll', ScrollTrigger.update);
+
+      if (currentOpenBtn) {
+        currentOpenBtn.setAttribute("aria-expanded", "false");
+        currentOpenBtn.focus();
+        currentOpenBtn = null; // 닫고 나면 초기화
+      }
+
+      document.removeEventListener("keydown", trapFocus);
     }
   });
 
@@ -260,6 +280,26 @@ document.addEventListener("keydown", (e) => {
     closeModal();
   }
 });
+
+// 트랩 포커스
+function trapFocus(event) {
+  const firstElement = modalLinks[0];
+  const lastElement = modalLinks[modalLinks.length - 1];
+
+  if (event.key === "Tab") {
+    if (event.shiftKey) {
+      if (document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      }
+    } else {
+      if (document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    }
+  }
+}
 
 /*------------------------------------
     Side Projects
