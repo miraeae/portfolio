@@ -51,16 +51,17 @@
         flex-direction: row-reverse;
         justify-content: space-between;
         align-items: end;
-        margin-top: 1rem;
+        padding-top: 1rem;
         padding-bottom: 6rem;
 
         @include tablet {
-            margin-top: 4rem;
+            padding-top: 3rem;
+            padding-bottom: 3.5rem;
         }
 
         @include mobile {
-            margin-top: 2.5rem;
-            padding-bottom: 5rem;
+            padding-top: 2.5rem;
+            padding-bottom: 3rem;
         }
     }
 
@@ -107,7 +108,7 @@
         margin-top: 5rem;
 
         @include tablet {
-            margin-top: 3.75rem;
+            margin-top: 2.2rem;
         }
     }
 
@@ -143,8 +144,12 @@
     align-items: center;
     justify-content: center;
     gap: 7px;
-    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
     font-size: 1rem;
+
+    @include mobile {
+        padding-bottom: 2rem;
+    }
     
     svg{
         animation: scrollDown ease 1.6s infinite reverse;

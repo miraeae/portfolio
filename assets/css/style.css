@@ -326,14 +326,14 @@ body[data-theme=dark] {
   .quick-link {
     bottom: 1.5rem;
     right: 1.5rem;
-    --circle-size: 60px;
+    --circle-size: 55px;
   }
 }
 @media (max-width: 767px) {
   .quick-link {
     bottom: 1.2rem;
     right: 1.2rem;
-    --circle-size: 50px;
+    --circle-size: 45px;
   }
 }
 .quick-link__item {
@@ -348,8 +348,8 @@ body[data-theme=dark] {
 }
 .quick-link__item:hover .quick-link__text {
   opacity: 1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 .quick-link__item a, .quick-link__item button {
   display: block;
@@ -379,8 +379,8 @@ body[data-theme=dark] {
   border-radius: 50px;
   padding: 5px 15px;
   opacity: 0;
-  -webkit-transform: translateY(20px);
-          transform: translateY(20px);
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
   -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
   transition: opacity 0.5s, -webkit-transform 0.5s;
   transition: opacity 0.5s, transform 0.5s;
@@ -846,18 +846,19 @@ body[data-theme=dark] {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: end;
-  margin-top: 1rem;
+  padding-top: 1rem;
   padding-bottom: 6rem;
 }
 @media (max-width: 1024px) {
   .footer__content {
-    margin-top: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 3.5rem;
   }
 }
 @media (max-width: 767px) {
   .footer__content {
-    margin-top: 2.5rem;
-    padding-bottom: 5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
   }
 }
 .footer__col:first-child {
@@ -909,7 +910,7 @@ body[data-theme=dark] {
 }
 @media (max-width: 1024px) {
   .footer__copyright {
-    margin-top: 3.75rem;
+    margin-top: 2.2rem;
   }
 }
 .footer__text {
@@ -950,8 +951,13 @@ body[data-theme=dark] {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 7px;
-  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
   font-size: 1rem;
+}
+@media (max-width: 767px) {
+  .top-btn {
+    padding-bottom: 2rem;
+  }
 }
 .top-btn svg {
   animation: scrollDown ease 1.6s infinite reverse;
