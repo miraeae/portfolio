@@ -4,9 +4,9 @@
 async function loadHeader() {
   let path = "";
   if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-    path = "/includes/header.html";
+    path = "/assets/includes/header.html";
   } else {
-    path = "/portfolio/includes/header.html";  // GitHub Pages
+    path = "/portfolio/assets/includes/header.html";  // GitHub Pages
   }
 
   const res = await fetch(path);
@@ -18,9 +18,9 @@ async function loadFooter() {
   let path = "";
 
   if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-    path = "/includes/footer.html";
+    path = "/assets/includes/footer.html";
   } else {
-    path = "/portfolio/includes/footer.html";  // GitHub Pages
+    path = "/portfolio/assets/includes/footer.html";  // GitHub Pages
   }
 
   const res = await fetch(path);
