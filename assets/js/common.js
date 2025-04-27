@@ -224,28 +224,37 @@ function layoutEvent() {
   // Header
   gsap.to(".header__inner", {y:0, duration: 1});
   
-  // Gnb moblie 
+  // Gnb moblie
   const gnbToggle = document.querySelector(".gnb-toggle");
-  const gnbTl = gsap.timeline({paused: true});
+  const gnbMobile = document.querySelector(".gnb-mobile");
+  const gnbTl = gsap.timeline({ paused: true });
 
   gnbTl
-  .fromTo(".header__inner", {"mix-blend-mode": "difference"}, {"mix-blend-mode": "unset"})
-  .to(".gnb-mobile", {display: "block", height:"auto"})
-  .from(".gnb-mobile__list li a", {yPercent:120, duration:0.5, stagger: 0.2})
-  .from(".gnb-mobile__contact-list li", {opacity:0, duration:0.5})
+  .fromTo(".header__inner", { mixBlendMode: "difference" }, { mixBlendMode: "unset" })
+  .fromTo(".gnb-mobile", { display: "none" }, { display: "block" }, "<")
+  .to(".gnb-mobile", { height: "auto" })
+  .from(".gnb-mobile__list li a", { yPercent: 120, duration: 0.5, stagger: 0.2 })
+  .from(".gnb-mobile__contact-list li", { opacity: 0, duration: 0.5 });
 
-  gnbToggle.addEventListener("click", () => {
-    const isActive = gnbToggle.classList.toggle("active"); //true나 false 값 반환
-    
+  function toggleGnb() {
+    const isActive = gnbToggle.classList.toggle("active");
     gnbToggle.setAttribute("aria-label", isActive ? "메뉴 닫기" : "메뉴 열기");
     gnbToggle.setAttribute("aria-expanded", isActive.toString());
+    isActive ? gnbTl.play() : gnbTl.reverse();
+  }
 
-    if(isActive){
-      gnbTl.play();
-    } else {
-      gnbTl.reverse();
+  function handleResize() {
+    if (window.innerWidth >= 1024) {
+      gnbMobile.style.display = "none";
+      gnbToggle.classList.remove("active");
+      gnbToggle.setAttribute("aria-label", "메뉴 열기");
+      gnbToggle.setAttribute("aria-expanded", "false");
+      gnbTl.progress(0).pause(); // 타임라인 초기화
     }
-  })
+  }
+  
+  gnbToggle.addEventListener("click", toggleGnb);
+  window.addEventListener("resize", handleResize);
 
   // Footer
   const footerTitle = document.querySelector(".footer__title");
