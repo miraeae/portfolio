@@ -188,31 +188,64 @@ let modalLinks;
 // 열기
 modalOpenBtns.forEach(btn => {
   btn.addEventListener("click", async () => {
-    const modalUrl = btn.getAttribute("data-modal");
+    const modalId = btn.getAttribute("data-modal"); //project-myshop같은 값 저장
     btn.setAttribute("aria-expanded", "true");
 
     currentOpenBtn = btn; // 모달 열기 전에 버튼 저장 (닫기에 사용)
 
     // 캐시에 이미 있으면 바로 사용
-    if (modalCache.has(modalUrl)) {
-      loadModalContent(modalCache.get(modalUrl));
+    if (modalCache.has(modalId)) {
+      loadModalContent(modalCache.get(modalId));
     } else {
       // 없으면 fetch 후 저장
       try {
-        const response = await fetch(`./project-details/${modalUrl}.html`);
-        const html = await response.text();
-        modalCache.set(modalUrl, html); // 저장
-        loadModalContent(html);
+        const res = await fetch("./assets/data/project-details.json");
+        const data = await res.json();
+        modalCache.set(modalId, data);  // 저장
+
+        const project = data[modalId];
+        console.log(`선택된 프로젝트 데이터:`, project); // 데이터 확인
+
+        if (project) {
+          modalCache.set(modalId, project);  // 캐시에 프로젝트 데이터 저장
+          loadModalContent(project);  // 모달 내용 로드
+        } else {
+          console.error(`프로젝트 ${modalId}는 데이터에 없습니다.`);
+        }
       } catch (error) {
-        console.error('모달 불러오기 실패:', error);
+        console.error('데이터 불러오기 실패:', error);
       }
     }
   });
 });
 
 // 모달 컨텐츠 삽입하고 애니메이션
-function loadModalContent(html) {
-  modalContent.innerHTML = html;
+function loadModalContent(project) {
+  let linksHTML = '';
+
+  // 각 링크 항목이 존재할 경우에만 출력
+  if (project.link.site) {
+    linksHTML += `<a href="${project.link.site}" class="project-modal__link project-modal__link--site" target="_blank" rel="noopener">Visit Site</a>`;
+  }
+  if (project.link.github) {
+    linksHTML += `<a href="${project.link.github}" class="project-modal__link project-modal__link--github" target="_blank" rel="noopener">GitHub</a>`;
+  }
+  if (project.link.review) {
+    linksHTML += `<a href="${project.link.review.link}" class="project-modal__link project-modal__link--review" target="_blank" rel="noopener">${project.link.review.name}</a>`;
+  }
+
+  modalContent.innerHTML = `
+  <div class="project-modal__text-box">
+    <h3 class="project-modal__title">${project.title}</h3>
+    <p class="project-modal__meta">${project.meta}</p>
+    <p class="project-modal__stack">${project.stack}</p>
+    <p class="project-modal__desc">${project.description}</p>
+    <div class="project-modal__links">${linksHTML}</div>
+  </div>
+  <div class="project-modal__img-box">
+      <img class="project-modal__img" src="./assets/images/${project.image}" alt="">
+  </div>
+  `;
 
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';

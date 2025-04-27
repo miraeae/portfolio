@@ -1523,8 +1523,8 @@ body[data-theme=dark] {
   line-height: 1;
   font-size: 1rem;
   white-space: nowrap;
-  -webkit-transition: color 0.4s ease, border 0.4s ease;
-  transition: color 0.4s ease, border 0.4s ease;
+  -webkit-transition: color 0.3s ease, border 0.4s ease;
+  transition: color 0.3s ease, border 0.4s ease;
   overflow: hidden;
   margin-top: 0.8rem;
 }
@@ -1554,8 +1554,12 @@ body[data-theme=dark] {
   background-position: left center;
   background-size: cover;
   background-repeat: no-repeat;
+  -webkit-transition: -webkit-filter 0.4s ease;
+  transition: -webkit-filter 0.4s ease;
+  transition: filter 0.4s ease;
+  transition: filter 0.4s ease, -webkit-filter 0.4s ease;
 }
-.project-modal__link--link:before {
+.project-modal__link--site:before {
   background-image: url(../images/icon-link.webp);
 }
 .project-modal__link--github:before {
@@ -1583,6 +1587,8 @@ body[data-theme=dark] {
         -ms-flex-pack: center;
             justify-content: center;
     margin-right: 10px;
+    padding-left: 0;
+    padding-right: 0;
   }
   .project-modal__link:last-child {
     width: 100%;

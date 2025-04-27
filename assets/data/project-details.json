@@ -1,0 +1,137 @@
+{
+  "project-myshop": {
+    "title": "My Shop <br>장바구니 쇼핑몰 제작",
+    "meta": "퍼블리싱 100% / 2025.04.24 ~ 진행중 / PC 적응형",
+    "stack": "HTML, CSS, JavaScript, JSON, Swiper",
+    "description": "JSON 파일을 활용해 데이터를 바인딩하여 간단한 쇼핑몰 사이트를 구현하였습니다. 비동기 처리와 localStorage 실습을 위해 제작하였으며, 완성도를 높이기 위해 작업을 계속 진행하고 있습니다.",
+    "link": {
+      "site": "https://miraeae.github.io/my-shop",
+      "github": "https://github.com/miraeae/my-shop",
+      "review": {
+        "link": "https://stingy-wrist-f0e.notion.site/My-Shop-1dfa6955b3a58008837dc092bdc003bd?pvs=4",
+        "name": "Code Review & 회고"
+      }
+    },
+    "image": "project-myshop-main.webp"
+  },
+  "project-urban": {
+    "title": "Urban Art <br>인터랙티브 사이트 클론 코딩",
+    "meta": "퍼블리싱 100% / 2025.03.14 ~ 2025.03.16 / 반응형",
+    "stack": "HTML, SCSS, JavaScript, GSAP, Lenis",
+    "description": "동적인 인터랙션 구현 능력을 점검해보고자 다양한 효과가 있는 사이트를 클론 코딩했습니다. JavaScript, GSAP를 활용하여 가로 세로 스크롤, 마우스 효과, 마스크 슬라이드 등을 구현하였으며, 시멘틱 마크업과 BEM, WAI-ARIA 적용 등을 통해 웹 표준과 접근성도 함께 고려했습니다.",
+    "link": {
+      "site": "https://miraeae.github.io/urban-art",
+      "github": "https://github.com/miraeae/urban-art",
+      "review": {
+        "link": "https://stingy-wrist-f0e.notion.site/Urban-Art-1dca6955b3a58093a394cdac8ac6b834?pvs=4",
+        "name": "Code Review & 회고"
+      }
+    },
+    "image": "project-urbanart-main.webp"
+  },
+  "project-scout": {
+    "title": "Scout Motors <br>인터랙티브 사이트 클론 코딩",
+    "meta": "퍼블리싱 100% / 2025.03.02 ~ 2025.03.07 / 반응형",
+    "stack": "HTML, SCSS, JavaScript, jQuery, GSAP(ScrollTrigger), Lenis, Swiper",
+    "description": "시퀀스 스크롤 애니메이션을 적용하고, IR 기법과 WAI-ARIA, Skip Menu 등의 기능을 활용하여 웹 접근성을 고려한 반응형 클론 코딩 사이트입니다.",
+    "link": {
+      "site": "https://miraeae.github.io/scoutmotors",
+      "github": "https://github.com/miraeae/scoutmotors",
+      "review": {
+        "link": "https://stingy-wrist-f0e.notion.site/Scout-Motors-1dca6955b3a5805c85acf79b9252900d?pvs=4",
+        "name": "Code Review & 회고"
+      }
+    },
+    "image": "project-scoutmotors-main.webp"
+  },
+  "project-sofwave": {
+    "title": "SOFWAVE™ <br>인터랙티브 사이트 클론 코딩",
+    "meta": "퍼블리싱 100% / 2025.02.18 ~ 2025.02.21+ / 반응형",
+    "stack": "HTML, SCSS, JavaScript, jQuery, GSAP(ScrollTrigger, TextPlugin), Lenis",
+    "description": "GSAP 라이브러리를 활용하여 인터렉션을 중점적으로 구현하였으며, SCSS를 사용하여 클론 코딩한 반응형 사이트입니다. 하루에 한번만 인트로 활성화, GSAP 반응형, sticky를 이용한 pin효과, 반복문 등을 사용하였습니다.",
+    "link": {
+      "site": "https://miraeae.github.io/sofwave",
+      "github": "https://github.com/miraeae/sofwave",
+      "review": {
+        "link": "https://stingy-wrist-f0e.notion.site/SOFWAVE-1dca6955b3a580688d7bdb4babf3a4c6?pvs=4",
+        "name": "Code Review"
+      }
+    },
+    "image": "project-sofwave-main.webp"
+  },
+  "project-lightroom": {
+    "title": "Lightroom Seoul <br>인터랙티브 사이트 클론 코딩",
+    "meta": "퍼블리싱 100% / 2025.01.22 ~ 2025.01.25+ / 반응형",
+    "stack": "HTML, SCSS, JavaScript,  jQuery, GSAP(ScrollTrigger), SplitType",
+    "description": "GSAP, ScrollTrigger를 사용하여 인터렉션을 중점적으로 구현하였으며, SCSS를 사용하여 클론 코딩한 반응형 사이트입니다. 데이터 속성을 사용한 배경과 메뉴 컬러 변경, SplitType을 활용한 텍스트 효과, 스크롤 시 넘어가는 슬라이드 등을 구현하였습니다.",
+    "link": {
+      "site": "https://miraeae.github.io/lightroom-seoul",
+      "github": "https://github.com/miraeae/lightroom-seoul",
+      "review": {
+        "link": "https://stingy-wrist-f0e.notion.site/Lightroom-Seoul-1dca6955b3a580d2ab2be284248a00c3?pvs=4",
+        "name": "Code Review"
+      }
+    },
+    "image": "project-lightroom-main.webp"
+  },
+  "project-goen": {
+    "title": "고은미래의원 <br>피부과 사이트 리뉴얼",
+    "meta": "퍼블리싱 80%, 디자인 100% / 2024.03 - 2024.05 / 반응형",
+    "stack": "HTML, CSS, JavaScript, WordPress, WooCommerce, Figma, Photoshop",
+    "description": "고객사 기획팀과 직접 소통하며 시안을 제작하고, 동료와 함께 퍼블리싱을 분담하여 작업을 진행했습니다. WooCommerce 플러그인을 활용해 장바구니 기반 예약 기능을 설계하고 구현하였으며, 해당 기능과 연동된 이벤트 템플릿도 함께 구축하여 고객사가 직접 콘텐츠 등록 및 예약 관리를 할 수 있는 환경을 구축하였습니다.",
+    "link": {
+      "site": "https://www.goeunmiraipt.kr/"
+    },
+    "image": "project-goeunmiraipt-main.webp"
+  },
+  "project-gamept": {
+    "title": "게임PT <br>e스포츠 코칭 사이트 리뉴얼",
+    "meta": "퍼블리싱 100%, 디자인 100% / 2023.09 - 2023.11 / 반응형",
+    "stack": "HTML, CSS, JavaScript, WordPress, Figma",
+    "description": "기획 단계부터 참여하여 주요 인터랙션을 제안하고, 시안을 제작하였습니다. Figma를 활용해 고객사와 원활히 소통하며 피드백을 신속하게 반영했습니다. 미디어쿼리를 이용해 다양한 디바이스에 최적화된 반응형 웹을 구현하고, 반복 요소는 모듈화하는 컴포넌트 기반의 퍼블리싱으로 재사용성과 유지보수 효율을 높였습니다.",
+    "link": {
+      "site": "https://gamept.kr"
+    },
+    "image": "project-gamept-main.webp"
+  },
+  "project-colo": {
+    "title": "Colosseum <br>종합 물류 사이트 리뉴얼",
+    "meta": "퍼블리싱 90%, 디자인 100% / 2023.04 - 2023.06 / 반응형",
+    "stack": "HTML, CSS, JavaScript, WordPress, Figma, Photoshop",
+    "description": "고객사의 디자이너와는 Figma, 기획자와는 Google 프레젠테이션을 통해 실시간으로 협업하며 시안을 제작하고 피드백을 신속히 반영하였습니다. 시안을 바탕으로 페이지별 기능과 목적에 부합하는 UI를 설계하고 구현하였으며, 공통 레이아웃과 스타일을 모듈화하여 개발 시간을 단축하는 등 효율적인 작업으로 다수 페이지 작업에도 일정을 준수하였습니다. 또한, Lottie를 활용해 동적인 애니메이션 효과도 적용하였습니다.",
+    "link": {
+      "site": "https://colosseum.kr"
+    },
+    "image": "project-coloseum-main.webp"
+  },
+  "project-ww": {
+    "title": "WESTWORLD <br>글로벌 VFX 스튜디오 사이트 리뉴얼",
+    "meta": "퍼블리싱 100%, 디자인 100% / 2022.11 - 2023.01 / 반응형",
+    "stack": "HTML, CSS, JavaScript, WordPress, WPML, Photoshop",
+    "description": "기업 아이덴티티를 반영한 인터랙션(메뉴, 시퀀스 애니메이션 등) 도입으로 브랜드 경험을 강화하였습니다. WPML을 활용해 다국어 지원 시스템을 구축하였으며, SEO 개선으로 동명 영화와의 혼동을 해소하였고, 검색 결과 상위 노출을 달성하였습니다.",
+    "link": {
+      "site": "https://www.westworld.co.kr"
+    },
+    "image": "project-ww-main.webp"
+  },
+  "project-union": {
+    "title": "Unionsystems DA# <br>데이터 모델링 툴 사이트 구축",
+    "meta": "퍼블리싱 100%, 디자인 100% / 2022.09 - 2022.11 / 반응형",
+    "stack": "HTML, CSS, JavaScript, WordPress, Photoshop, Illustrator",
+    "description": "기획팀과 직접 소통하여 요구사항을 반영한 시안 제작 후 퍼블리싱을 진행했으며, 다양한 인터랙션으로 제품 특성을 효과적으로 전달했습니다. 또한 반응형 웹을 구현하여 다양한 디바이스에 최적화하였습니다. 이 프로젝트는 고객 만족을 이끌어 본사 리뉴얼 프로젝트 추가 수주로 이어졌습니다.",
+    "link": {
+      "site": "https://www.uniondata.co.kr/"
+    },
+    "image": "project-union-data-main.webp"
+  },
+  "project-topcare": {
+    "title": "탑케어동물의료원<br>동물의료원 사이트 구축</h3>",
+    "meta": "퍼블리싱 90%, 디자인 100% / 2023.07 - 2023.10 / 반응형",
+    "stack": "HTML, CSS, JavaScript, WordPress, Photoshop",
+    "description": "서비스 기획부터 디자인 및 퍼블리싱 전반을 담당하였습니다. 재사용 가능한 UI 컴포넌트로 작업 효율성을 강화하였으며, 반응형 웹 최적화로 다양한 디바이스를 지원한 프로젝트 입니다.",
+    "link": {
+      "site": "https://www.topcare.kr"
+    },
+    "image": "project-topcare-main.webp"
+  }
+}

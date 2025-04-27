@@ -605,6 +605,8 @@
       width: calc(50% - 10px);
       justify-content: center;
       margin-right: 10px;
+      padding-left: 0;
+      padding-right: 0;
 
       &:last-child{
         width: 100%;
