@@ -288,17 +288,33 @@ function layoutEvent() {
 
   
   // Click Event
-  $(".gnb__item > a, .gnb-mobile__item > a").click(function () {
-    $("html, body").animate({ scrollTop: $(this.hash).offset().top }, 800);
-    return false;
+  // 메뉴 클릭 시 스크롤 이동
+  document.querySelectorAll(".gnb__item > a, .gnb-mobile__item > a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop,
+          behavior: "smooth"
+        });
+      }
+    });
   });
 
-  $(".top-btn").click(function () {
-    $("html, body").animate({ scrollTop: 0 }, 800);
-    return false;
-  });
+  // 맨 위로 이동 버튼
+  const topBtn = document.querySelector(".top-btn");
+  if (topBtn) {
+    topBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
 }
-
 
 document.addEventListener("DOMContentLoaded", async () => {
   await loadHeader();
