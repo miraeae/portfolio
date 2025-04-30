@@ -2,15 +2,12 @@
   "project-myshop": {
     "title": "My Shop <br>장바구니 쇼핑몰 제작",
     "meta": "퍼블리싱 100% / 2025.04.24 ~ 진행중 / PC 적응형",
-    "stack": "HTML, CSS, JavaScript, JSON, Swiper",
-    "description": "JSON 파일을 활용해 데이터를 바인딩하여 간단한 쇼핑몰 사이트를 구현하였습니다. 비동기 처리와 localStorage 실습을 위해 제작하였으며, 완성도를 높이기 위해 작업을 계속 진행하고 있습니다.",
+    "stack": "HTML, CSS, JavaScript, JSON, Gulp, Swiper",
+    "description": "JSON 파일을 활용해 데이터를 바인딩하여 간단한 쇼핑몰 사이트를 구현하였습니다. 비동기 처리와 localStorage 실습을 위해 제작하였으며, Gulp를 사용하여 빌드 자동화와 파일 최적화 작업을 진행하였습니다. 현재 완성도를 높이기 위해 작업을 이어가고 있습니다.",
     "link": {
       "site": "https://miraeae.github.io/my-shop",
       "github": "https://github.com/miraeae/my-shop",
-      "review": {
-        "link": "https://stingy-wrist-f0e.notion.site/My-Shop-1dfa6955b3a58008837dc092bdc003bd?pvs=4",
-        "name": "Code Review & 회고"
-      }
+      "review": "https://stingy-wrist-f0e.notion.site/My-Shop-1dfa6955b3a58008837dc092bdc003bd?pvs=4"
     },
     "image": "project-myshop-main.webp"
   },
@@ -22,10 +19,7 @@
     "link": {
       "site": "https://miraeae.github.io/urban-art",
       "github": "https://github.com/miraeae/urban-art",
-      "review": {
-        "link": "https://stingy-wrist-f0e.notion.site/Urban-Art-1dca6955b3a58093a394cdac8ac6b834?pvs=4",
-        "name": "Code Review & 회고"
-      }
+      "review": "https://stingy-wrist-f0e.notion.site/Urban-Art-1dca6955b3a58093a394cdac8ac6b834?pvs=4"
     },
     "image": "project-urbanart-main.webp"
   },
@@ -37,10 +31,7 @@
     "link": {
       "site": "https://miraeae.github.io/scoutmotors",
       "github": "https://github.com/miraeae/scoutmotors",
-      "review": {
-        "link": "https://stingy-wrist-f0e.notion.site/Scout-Motors-1dca6955b3a5805c85acf79b9252900d?pvs=4",
-        "name": "Code Review & 회고"
-      }
+      "review": "https://stingy-wrist-f0e.notion.site/Scout-Motors-1dca6955b3a5805c85acf79b9252900d?pvs=4"
     },
     "image": "project-scoutmotors-main.webp"
   },
@@ -52,10 +43,7 @@
     "link": {
       "site": "https://miraeae.github.io/sofwave",
       "github": "https://github.com/miraeae/sofwave",
-      "review": {
-        "link": "https://stingy-wrist-f0e.notion.site/SOFWAVE-1dca6955b3a580688d7bdb4babf3a4c6?pvs=4",
-        "name": "Code Review"
-      }
+      "review": "https://stingy-wrist-f0e.notion.site/SOFWAVE-1dca6955b3a580688d7bdb4babf3a4c6?pvs=4"
     },
     "image": "project-sofwave-main.webp"
   },

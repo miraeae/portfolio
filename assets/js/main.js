@@ -231,7 +231,7 @@ function loadModalContent(project) {
     linksHTML += `<a href="${project.link.github}" class="project-modal__link project-modal__link--github" target="_blank" rel="noopener">GitHub</a>`;
   }
   if (project.link.review) {
-    linksHTML += `<a href="${project.link.review.link}" class="project-modal__link project-modal__link--review" target="_blank" rel="noopener">${project.link.review.name}</a>`;
+    linksHTML += `<a href="${project.link.review}" class="project-modal__link project-modal__link--review" target="_blank" rel="noopener">회고록</a>`;
   }
 
   modalContent.innerHTML = `
