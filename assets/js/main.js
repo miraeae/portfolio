@@ -335,29 +335,38 @@ function trapFocus(event) {
 }
 
 /*------------------------------------
-    Side Projects
+    Blog
 ------------------------------------*/
-const sideItems = document.querySelectorAll(".side-project__item");
-const sideCursor = document.querySelector(".side-project__cursor");
-const sideCursorImgs = sideCursor.querySelectorAll(".side-project__cursor-img");
+const blog = document.querySelector(".blog");
+const blogItems = document.querySelectorAll(".blog__item");
+const blogCursor = document.querySelector(".blog__cursor");
+const blogCursorImgs = blogCursor.querySelectorAll(".blog__cursor-img");
 
 document.addEventListener("mousemove", (e) => {
-  sideCursor.style.top = `${e.clientY}px`
-  sideCursor.style.left = `${e.clientX}px`
-  sideCursor.animate({
+  blogCursor.style.top = `${e.clientY}px`
+  blogCursor.style.left = `${e.clientX}px`
+  blogCursor.animate({
     top: `${e.clientY}px`, left:`${e.clientX}px`
   }, 2000)
 })
 
-sideItems.forEach((item, idx) => {
-  const sideCursorImg = sideCursorImgs[idx];
+blog.addEventListener("mouseenter", () => {
+  blogCursor.style.display = "block";
+})
+
+blog.addEventListener("mouseleave", () => {
+  blogCursor.style.display = "none";
+})
+
+blogItems.forEach((item, idx) => {
+  const blogCursorImg = blogCursorImgs[idx];
 
   item.addEventListener("mouseenter", () => {
-    sideCursorImg.classList.add("active");
+    blogCursorImg.classList.add("active");
   })
 
   item.addEventListener("mouseleave", () => {
-    sideCursorImg.classList.remove("active");
+    blogCursorImg.classList.remove("active");
   })
 })
 
