@@ -204,7 +204,6 @@ modalOpenBtns.forEach(btn => {
         modalCache.set(modalId, data);  // 저장
 
         const project = data[modalId];
-        console.log(`선택된 프로젝트 데이터:`, project); // 데이터 확인
 
         if (project) {
           modalCache.set(modalId, project);  // 캐시에 프로젝트 데이터 저장

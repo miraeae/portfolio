@@ -1659,13 +1659,18 @@ body[data-theme=dark] {
 }
 @media (max-width: 767px) {
   .project-modal__link {
-    width: calc(50% - 10px);
+    width: calc(50% - 5px);
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    margin-right: 10px;
     padding-left: 0;
     padding-right: 0;
+  }
+  .project-modal__link:first-child {
+    margin-right: 5px;
+  }
+  .project-modal__link:nth-child(2) {
+    margin-left: 5px;
   }
   .project-modal__link:last-child {
     width: 100%;
