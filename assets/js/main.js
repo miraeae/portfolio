@@ -201,12 +201,11 @@ modalOpenBtns.forEach(btn => {
       try {
         const res = await fetch("./assets/data/project-details.json");
         const data = await res.json();
-        modalCache.set(modalId, data);  // 저장
-
         const project = data[modalId];
 
         if (project) {
           modalCache.set(modalId, project);  // 캐시에 프로젝트 데이터 저장
+          //console.log('데이터 확인:', modalCache.get(modalId));
           loadModalContent(project);  // 모달 내용 로드
         } else {
           console.error(`프로젝트 ${modalId}는 데이터에 없습니다.`);
